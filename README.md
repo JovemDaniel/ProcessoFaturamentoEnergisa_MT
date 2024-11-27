@@ -1,4 +1,4 @@
-# Projeto Faturamento Energisa Mato Grosso
+# Processo Faturamento Energisa Mato Grosso
 
 Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento da Energisa MT.
 
