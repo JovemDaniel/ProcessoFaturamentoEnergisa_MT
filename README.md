@@ -1,6 +1,6 @@
 # Projeto Faturamento Energisa Mato Grosso
 
-Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento da Energisa MS.
+Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento da Energisa MT.
 
 ![image](https://github.com/user-attachments/assets/b9e6a9a6-49b7-4be7-a02e-c5857ead62fb)
 
@@ -21,8 +21,8 @@ O objetivo deste projeto é automatizar o processo de faturamento da Energisa, d
 
 ## Variáveis
 
-### CheckEmailEnergisaMS
-- `strOutputPathMedicoesMS`: Caminho para salvar os PDFs filtrados.
+### CheckEmailEnergisaMT
+- `strOutputPathMedicoesMT`: Caminho para salvar os PDFs filtrados.
 
 ### GetDataPDF
 - `strDataPDF`: Texto extraído do PDF.
