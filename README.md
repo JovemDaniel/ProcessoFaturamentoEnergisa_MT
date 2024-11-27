@@ -1,4 +1,4 @@
-# Projeto Faturamento Energisa Mato Grosso do Sul
+# Projeto Faturamento Energisa Mato Grosso
 
 Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento da Energisa MS.
 
@@ -11,7 +11,7 @@ O objetivo deste projeto é automatizar o processo de faturamento da Energisa, d
 ## Estrutura do Projeto
 
 - **1 Main Sequence (Sequence)**: Coordena a execução de todos os sub-processos, inicializando variáveis e chamando workflows específicos.
-- **1.1 CheckEmailEnergisaMS (Sequence)**: Verifica a caixa de entrada de emails para mensagens com medições de lote, salva os anexos PDF e extrai o nome do arquivo.
+- **1.1 CheckEmailEnergisaMT (Sequence)**: Verifica a caixa de entrada de emails para mensagens com medições de lote, salva os anexos PDF e extrai o nome do arquivo.
 - **1.2 GetDataPDF (Sequence)**: Lê dados de arquivos PDF, extrai informações importantes e preenche um arquivo Excel com esses dados.
 - **1.3 LoginTOTVS (Sequence)**: Realiza o login no sistema TOTVS usando credenciais armazenadas de forma segura.
 - **1.4 ProcessDataInTOTVS (Sequence)**: Processa os dados dentro do sistema TOTVS, navegando pelas telas e interagindo com a aplicação conforme necessário.
@@ -81,7 +81,7 @@ Certifique-se de que os pacotes estejam instalados e atualizados para evitar pro
 
 1. Clone este repositório:
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/JovemDaniel/ProcessoFaturamentoEnergisa_MT.git
     ```
 
 2. Abra o projeto no UiPath Studio.
