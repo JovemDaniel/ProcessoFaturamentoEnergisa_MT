@@ -2,7 +2,7 @@
 
 Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento da Energisa MS.
 
-![image](https://github.com/user-attachments/assets/3136039c-3393-40de-a81e-395776c1b451)
+![image](https://github.com/user-attachments/assets/b9e6a9a6-49b7-4be7-a02e-c5857ead62fb)
 
 ## Visão Geral
 
