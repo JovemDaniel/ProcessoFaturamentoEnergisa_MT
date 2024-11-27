@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="omfX58iw2kCCsI4EugT9CQ" Reference="AzH3SkzRfE-V5qj5Yzs_qA/EEulcWwJi0qnIxIYRB7AZw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="3f61ed76-7cb9-469b-9555-61f8340835e8" CvElementArea="1170, 753, 83, 39" CvTextArea="1180, 767, 62, 14" CvTextArgument="Avançar &gt;&gt;" CvType="Button" DesignTimeRectangle="1172, 755, 80, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' automationid='' check:fulltext='Avançar &amp;gt;&amp;gt;' /&gt;" Guid="01fcd0d4-d6c5-4f6d-83ea-207abd21229a" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
+          <Target CVScreenId="b92a5c97-6298-4b91-b4aa-cb922177facf" CvElementArea="1070, 753, 83, 39" CvTextArea="1089, 767, 46, 11" CvTextArgument="&lt;&lt; Voltar" CvType="Button" DesignTimeRectangle="1072, 755, 80, 36" ElementType="Button" FullSelectorArgument="&lt;ctrl name='&amp;lt;&amp;lt; Voltar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='&amp;lt;&amp;lt; Voltar' role='push button' automationid='' check:fulltext='&amp;lt;&amp;lt; Voltar' /&gt;" Guid="0c703299-8159-460c-8ed1-4c1a96ab6765" SearchSteps="Selector, FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="f2ee8dd0b70927e5917123e9b2c4cb80.png" xmlns="">08kpGB9CkKECFKdOTMvERog</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

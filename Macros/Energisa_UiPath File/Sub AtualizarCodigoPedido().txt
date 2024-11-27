@@ -1,0 +1,32 @@
+Sub AtualizarCodigoPedido()
+    Dim wsUltima As Worksheet
+    Dim wsNova As Worksheet
+    Dim wsDados As Worksheet
+    Dim ultimoCodigo As Long
+    Dim novoCodigo As Long
+    Dim numPlanilhas As Long
+    
+    ' Número total de planilhas
+    numPlanilhas = ThisWorkbook.Sheets.Count
+    
+    ' Definir a última planilha antes da nova
+    Set wsUltima = ThisWorkbook.Sheets(numPlanilhas - 1)
+    
+    ' Definir a nova planilha (última planilha criada)
+    Set wsNova = ThisWorkbook.Sheets(numPlanilhas)
+    
+    ' Definir a planilha "Dados"
+    Set wsDados = ThisWorkbook.Sheets("Dados")
+    
+    ' Obter o último código de pedido na célula G13 da última planilha
+    ultimoCodigo = wsUltima.Range("G13").Value
+    
+    ' Incrementar o código
+    novoCodigo = ultimoCodigo + 1
+    
+    ' Atualizar o novo código na última planilha (G13)
+    wsNova.Range("G13").Value = novoCodigo
+    
+    ' Copiar o novo código para a planilha "Dados" (G13)
+    wsDados.Range("G13").Value = novoCodigo
+End Sub

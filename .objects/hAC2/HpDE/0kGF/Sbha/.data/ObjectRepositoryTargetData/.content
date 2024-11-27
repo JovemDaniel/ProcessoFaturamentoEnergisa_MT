@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="gm4OArPIIU2BLqxT9yxKCA" Reference="AzH3SkzRfE-V5qj5Yzs_qA/SbhaJh4UMEmKz8WdWhva8w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="faf8f442-c547-4ca9-b603-14a5f0d6d0cb" CvTextArea="782, 268, 372, 24" CvTextArgument="Boas-vindas, Automação UI PATH." CvType="Text" DesignTimeRectangle="782, 268, 372, 25" DesignTimeScaleFactor="1" ElementType="Text" Guid="daaf8b59-d5e7-49b1-9d0d-80fafa16ad9d" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0099 - Ver: 20.3.2.8' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="faf8f442-c547-4ca9-b603-14a5f0d6d0cb" CvTextArea="861, 215, 215, 30" CvTextArgument="Linha Protheus" CvType="Text" DesignTimeRectangle="861, 215, 215, 30" ElementType="Text" Guid="8150b879-5ae9-48f4-b481-b9afcd311035" SearchSteps="CV" TargetType="ComputerVisionBased" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="8ccfe65df6869c498f9c790bd1cff8d9.png" xmlns="">0g_SRxshsakuEmX7GqZcXjg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

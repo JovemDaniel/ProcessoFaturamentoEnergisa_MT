@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Check App State 'Entrar Entrar'",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "SbhaJh4UMEmKz8WdWhva8w",
+  "Reference": "AzH3SkzRfE-V5qj5Yzs_qA/SbhaJh4UMEmKz8WdWhva8w",
+  "ParentRef": "AzH3SkzRfE-V5qj5Yzs_qA/0kGF4H74eE6msCH41gpKug",
+  "Created": "2024-11-12T15:05:29.3164698Z",
+  "Updated": "2024-11-12T15:05:29.3164698Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

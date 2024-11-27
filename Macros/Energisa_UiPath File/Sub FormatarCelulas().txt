@@ -1,0 +1,47 @@
+Sub FormatarCelulas()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim cell As Range
+    
+    ' Usar a planilha ativa
+    Set ws = ActiveSheet
+
+    ' Encontrar a última linha preenchida na coluna D
+    lastRow = ws.Cells(ws.Rows.Count, "D").End(xlUp).Row
+
+    ' Formatar D10 como texto sem alterar a fórmula
+    With ws.Range("D10")
+        If Not IsEmpty(.Value) Then
+            .NumberFormat = "@" ' Formato texto
+        End If
+    End With
+
+    ' Formatar a partir de D13 até a última linha como moeda
+    For Each cell In ws.Range("D13:D" & lastRow)
+        If Not IsEmpty(cell.Value) Then ' Verifica se a célula não está vazia
+            If IsNumeric(cell.Value) Then
+                cell.NumberFormat = "#,##0.00" ' Formato de moeda
+            End If
+        End If
+    Next cell
+
+    ' Formatar toda a coluna F como geral
+    ws.Columns("F:F").NumberFormat = "General" ' Formato geral
+
+    ' Verifica o valor em E13 e substitui conforme necessário
+    Select Case ws.Range("E13").Value
+        Case "ENERGISA MS"
+            ws.Range("E13").Value = "CAMPO GRANDE"
+        Case "ENERGISA MT"
+            ws.Range("E13").Value = "CUIABÁ"
+    End Select
+
+    ' Adicionando lógica para outras células, se necessário
+    ' Exemplo: Se você quiser substituir em E14 também
+    Select Case ws.Range("E14").Value
+        Case "ENERGISA MS"
+            ws.Range("E14").Value = "Campo Grande"
+        Case "ENERGISA MT"
+            ws.Range("E14").Value = "Cuiabá"
+    End Select
+End Sub

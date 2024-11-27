@@ -1,0 +1,967 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ProcessDataInTOTVS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strPedidoVendaPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_strOrderTOTVS" Type="InArgument(x:String)" />
+    <x:Property Name="in_strEnergisaExcelFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="out_strCodeRPS" Type="OutArgument(x:String)" />
+    <x:Property Name="in_strDatePDF" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ProcessDataInTOTVS_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Semantic.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ProcessDataInTOTVS" sap:VirtualizedContainerService.HintSize="1836,14486" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strCodeRPS" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Inicialization process ProcessDataInTOTVS" sap:VirtualizedContainerService.HintSize="1108,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Iniciando fluxo ProcessDataInTOTVS.xaml&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="TOTVS Serviços (TOTVS) 02.9.0099" sap:VirtualizedContainerService.HintSize="1108,13699" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="1074,13376" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="blnDisplayPedidodeVendaScreen" />
+              <Variable x:TypeArguments="x:String" Name="strOrderTOTVSCompare" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'Bem vindo à home do faturamento' message" sap:VirtualizedContainerService.HintSize="1040,1401" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="20" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,1152" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Home do Faturamento" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Menu inicial do Faturamento localizado!&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Favoritos' in side bar" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="162d95f2-4749-45f2-82c0-91a6ab8e7a16" CvTextArea="16, 406, 56, 14" CvTextArgument="*Eavoritos" CvType="Text" DesignTimeRectangle="16, 406, 56, 14" DesignTimeScaleFactor="1" ElementType="Text" Guid="cd86b273-b35b-442d-8e9f-486e6e585c0f" InformativeScreenshot="d9a99560b7e78ea69de3dd2e667398ac.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0099' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="162d95f2-4749-45f2-82c0-91a6ab8e7a16" CvTextArea="22, 486, 54, 13" CvTextArgument="Recentes" CvType="Text" DesignTimeRectangle="22, 486, 54, 13" ElementType="Text" Guid="3cd2119c-2bbf-4fd5-80a8-e4c547135b84" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <Delay DisplayName="Delay to click in 'Pedidos de Venda'" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <ui:LogMessage DisplayName="Log Message - Pedidos de Vendas found" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Botão pedidos de venda localizado!&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Pedidos de Venda' in Favoritos" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="a8fcfea0-4aad-49eb-9e17-abb026cc37a5" CvTextArea="37, 466, 101, 12" CvTextArgument="Pedidos de Venda" CvType="Text" DesignTimeRectangle="37, 466, 101, 12" DesignTimeScaleFactor="1" ElementType="Text" Guid="1b399958-6175-43e4-bbac-acca11532603" InformativeScreenshot="ec6b7d59b3ced09e04cdbef1da3a8c88.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0099' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="a8fcfea0-4aad-49eb-9e17-abb026cc37a5" CvTextArea="16, 406, 56, 14" CvTextArgument="Favoritos" CvType="Text" DesignTimeRectangle="16, 406, 56, 14" ElementType="Text" Guid="542f39e0-997e-4bca-9701-008a9b0fe971" ImageBase64="" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message - 'Opening Pedidos de Vendas'" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Abrindo pedido de vendas...&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,352" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Falha no home do Faturamento" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;Falha ao localizar o menu inicial do faturamento!&quot;]" />
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Process finishing | Home Faturamento" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="O processo finalizado por problemas ao localizar menu financeiro" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable CVScreenId="c31e8af3-db08-4a61-9088-24d5df9736c7" CvTextArea="939, 199, 480, 35" CvTextArgument="HOME DO FATURAMENTO" CvType="Text" DesignTimeRectangle="939, 199, 480, 35" DesignTimeScaleFactor="1" ElementType="Text" Guid="3fabb0c7-913a-40f4-a940-e5127b7fd967" InformativeScreenshot="09fd3aa2c7e9db832d82c1b65da165c1.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0099 - Ver: 20.3.2.8' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="e39253d9-0f6e-4afe-94af-045ee03d0d77" CvElementArea="1478, 66, 201, 33" CvTextArea="1486, 76, 182, 13" CvTextArgument="TOTVS Serviços MSSQL Cypsli_prod" CvType="Button" DesignTimeRectangle="1478, 66, 200, 33" ElementType="Button" FullSelectorArgument="&lt;ctrl name='TOTVS Serviços MSSQL Cypsli_prod' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='TOTVS Serviços MSSQL Cypsli_prod' role='push button' automationid='' check:fulltext='TOTVS Serviços MSSQL Cypsli_prod' /&gt;" Guid="f246bfc0-e4e9-4bdc-9d65-4fc859331b52" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message - Check if appear Taxa de Juros Mensal" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Checando necessidade de configuração de Taxa de Juros Mensal...&quot;]" />
+            <uix:NCheckState DisplayName="Check App State 'Taxa de Juros Mensal'" sap:VirtualizedContainerService.HintSize="1040,704" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="15" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,455" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message necessary set Taxa" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Necessário confirmação de Taxa de Juros Mensal&#xA;Confirmando...&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Confirmar' in Taxa de Juros Mensal" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="66d6b50e-e59b-4bae-b022-c02608928537" CvElementArea="1039, 756, 83, 37" CvTextArea="1051, 769, 60, 11" CvTextArgument="Confirmar" CvType="Button" DesignTimeRectangle="1040, 757, 82, 35" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Confirmar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Confirmar' role='push button' automationid='' check:fulltext='Confirmar' /&gt;" Guid="53a0e96b-6698-4419-ae65-339472499e40" InformativeScreenshot="8a5017def14ac5ac73a78e38ab9dab56.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="66d6b50e-e59b-4bae-b022-c02608928537" CvTextArea="843, 687, 110, 11" CvTextArgument="Taxa de Juros Mensal:" CvType="Text" DesignTimeRectangle="845, 686, 126, 16" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Taxa de Juros Mensal:' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Taxa de Juros Mensal:' role='text' automationid='' check:text='Taxa de Juros Mensal:' /&gt;" Guid="030b4b0c-0a01-4a5b-b11c-2d984e732746" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,230" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message NOT necessary set Taxa" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Não necessário confirmação de Taxa de Juros Mensal&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable CVScreenId="66d6b50e-e59b-4bae-b022-c02608928537" CvTextArea="843, 687, 110, 11" CvTextArgument="Taxa de Juros Mensal:" CvType="Text" DesignTimeRectangle="845, 686, 126, 16" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Taxa de Juros Mensal:' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Taxa de Juros Mensal:' role='text' automationid='' check:text='Taxa de Juros Mensal:' /&gt;" Guid="245bb61a-09e6-4de0-b5ba-7a8c1bf7bb5c" InformativeScreenshot="01353955042a597667e127634bfff534.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="834, 451, 102, 31" Guid="ae7c0dc8-4ccb-47b6-9aaa-c55ea1227d39" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGYAAAAfCAYAAAAV8rhrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALWSURBVGhD7VjRkcUgCHx1WZD1WI3NpBgPjcHFoGeemTs/3Bk+ohiBRTD5hI0lsYlZFJuYRbGJWRSbmEWxiVkUD4k5gjOf8Pmg2ODzbIEPVui09P4J3ha77DJWCbxAjAnuyNMXDheM0ImyiXmCF4j5BFMxczhz09nEPMMcMcacJ6NyzlvQYdnEPMEcMdbmXoJBL/3F0jzrasQcPjgrT5exLvi6NDKO4J0VZdIYG1xzQa1vgo26PWLIJksJx/N5Xcuuw7u7Pj1b52n37zFJjMvP0Ge4v9AYBaUYXBGDwblJDGDWY+hl9JK6nPb0DQYSN1J7I4r0QS/ZIMZ9Tc4kMZ7L1uVfMZacEI6CU2KcCMypGLNPjINXIgi0WZqKJ47t6egnW/J4nRBMDPqG75I+lwSAm6cggPShlN8TZgxTxMRNOQDJQZiPzw1isAd1Lw4cNLx+y6wVe6hBLklzQfTAelIB2sT24r5ETLOafolpYrgkpawpAUxzKjEYZJnlCdqaKghyiZa5HSIjRpr/Qd7E/lH3QDYY98hz3X73DPPEcNAoAOBw8vdXYpSgafPdfoQyuEeTGCKDiCg236UQE92TpKEYei9x+zXmiYEglKbaC9CqxEjf4mk+b2JQrkmQmIjzVobrULRLzBimiDk3rR0i6ZYUHBssZc0Mb+GXPbT3dcplj5gCIpBIitd/ceJupXcMLxAT/QRDonDw9Mx9tfkPZD8PZ6jNv0N+z14dHXsH8Qoxda0tfjUMFKeCMnrgulwHM02lj0FdXwQ67p3nmtfl2qZLv/KNicH30KnAnn/g99t/nhgZBAwQ6svMqR2W8sYHZkUm6qofmP33s4Bh8aKg6rBUyfIA7xDTPLptYhLyLxmsyUO/ZDCA8fdHc4HySyZGqlm2zlsZz5F+ul11/FB/yaR1c982D4nZ+CtsYhbFJmZRbGIWxSZmUWxiFsUmZlFsYhbFJmZJhPAD4jq2aE8xqCMAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message - Waiting pedidos de venda page load completely" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Esperando página de Pedidos de Venda carregar totalmente...&quot;]" />
+            <Delay DisplayName="Delay to wait 'Outras ações' load " Duration="00:00:10" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_4" />
+            <ui:LogMessage DisplayName="Log Message - Opening import pedido de venda bar" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Acessando Outras ações para importar arquivo de pedido de vendas...&quot;]" />
+            <uix:NCheckState DisplayName="Check App State 'Outras Ações'" sap:VirtualizedContainerService.HintSize="1040,1154" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,905" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - 'Outras Ações' found to import Pedido de Venda" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Botão 'Outras Ações' localizado...&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Outras Ações' to import pedido de venda file" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="3a74e8c3-79e5-4894-bd5a-8f98595ba37b" CvElementArea="437, 151, 17, 23" CvTextArea="355, 156, 68, 15" CvTextArgument="Outras Ações" CvType="ArrowButton" DesignTimeRectangle="334, 148, 120, 30" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Outras Ações' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Outras Ações' role='push button' automationid='' check:fulltext='Outras Ações' /&gt;" Guid="14fc090b-573d-4ab8-9eab-884f8adbb241" InformativeScreenshot="ce31600b12b57be3d3c30941036ad264.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="3a74e8c3-79e5-4894-bd5a-8f98595ba37b" CvTextArea="24, 113, 151, 16" CvTextArgument="Pedidos de Venda:" CvType="Text" DesignTimeRectangle="24, 113, 151, 16" ElementType="Text" Guid="706c499f-a956-4b6a-ab5a-c4811ffa27de" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Outros' inside 'Outras Ações' to pedido de venda import" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_48" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="202fd8df-e5b9-48fc-81b1-00797d5cc56c" CvElementArea="113, 202, 12, 15" CvTextArea="17, 204, 35, 13" CvTextArgument="Outros" CvType="ArrowButton" DesignTimeRectangle="1, 199, 131, 22" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;ctrl name='Outros' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Outros' role='menu item' automationid='' check:fulltext='Outros' /&gt;" Guid="d048026b-a26e-4c6c-a461-bff9e8f01b55" InformativeScreenshot="ac0a63cb0f4ee7065d807499f8d7b459.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowPopupDropShadowSaveBits' title='smartclient' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="202fd8df-e5b9-48fc-81b1-00797d5cc56c" CvTextArea="17, 204, 35, 13" CvTextArgument="Outros" CvType="Text" DesignTimeRectangle="17, 204, 35, 13" ElementType="Text" Guid="7b6f7823-5584-4492-94e1-eaa1c40fd834" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Importar' " sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_49" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="2526f292-92db-4e98-b4db-747922d90ef3" CvTextArea="17, 7, 41, 11" CvTextArgument="Importar" CvType="Text" DesignTimeRectangle="0, 0, 94, 24" DesignTimeScaleFactor="1" Guid="feac41ae-2566-4f2f-8b0b-4f02693dc954" InformativeScreenshot="202edea3f21b0c83e736c152e7771353.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowPopupDropShadowSaveBits' title='smartclient' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.FuzzySelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <Literal x:TypeArguments="x:String" Value="" />
+                          </InArgument>
+                        </uix:TargetAnchorable.FuzzySelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow - If Outras Ações button not appers" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_5" Reason="Botão 'Outras Ações' não foi localizado!" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable CVScreenId="e6d53eb1-ea09-4995-b50e-3a9066493ba0" CvElementArea="437, 151, 17, 23" CvTextArea="355, 156, 68, 15" CvTextArgument="Outras Ações" CvType="ArrowButton" DesignTimeRectangle="334, 148, 120, 30" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Outras Ações' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Outras Ações' role='push button' automationid='' check:fulltext='Outras Ações' /&gt;" Guid="9726bf64-5640-4ec3-87aa-b89290048bc7" InformativeScreenshot="f1cb95f02daadc29b01deb23aa0579e0.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="e6d53eb1-ea09-4995-b50e-3a9066493ba0" CvTextArea="24, 112, 151, 16" CvTextArgument="Pedidos de Venda:" CvType="Text" DesignTimeRectangle="24, 112, 151, 16" ElementType="Text" Guid="8b075d4a-9ea8-4f9a-97b1-55717079a1de" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message - Typing path to import pedido de venda file" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[&quot;Digitando caminho para arquivo de Pedido de Venda...&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Arquivo' the in_strPedidoVendaPath" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1040,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Text="[in_strPedidoVendaPath]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="781, 679, 209, 29" DesignTimeScaleFactor="1" Guid="cce3d579-bcad-46df-9a6d-47089a0ac08d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANEAAAAdCAYAAAA0EIkgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVHhe7dYxCsJAFEVR978vC0XQTkkM2knICgKRkUiYevS158Ar/gIu/F0BIiKCkIggJCII1YjmeS7Xriv7w9HMfliNaA2ouw/bBbSqEa1FAb8TEYREBCERQUhEEBIRhEQEIRFBSEQQEhGERAQhEUFIRBASEYREBCERQUhEEKoRDY9neY3jdgGtakTjNJXT+bJdQKsa0bK8y63vv2+dmbWvRgT8R0QQEhFESvkAre1EPdeMz9sAAAAASUVORK5CYII=" InformativeScreenshot="c888d648d5343b11f3949a22db49f474.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="5f8535a0-7982-4564-b339-40ea8e53ba20" CvTextArea="728, 686, 39, 12" CvTextArgument="Arquivo" CvType="Text" DesignTimeRectangle="729, 685, 50, 14" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Arquivo' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Arquivo' role='text' automationid='' check:text='Arquivo' /&gt;" Guid="a2ad1b63-f6d3-479b-ab14-ea97156c7158" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Importar' to upload the PedidoVenda file" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="08f6c931-1501-489c-9bcd-ab9248d8f9cf" CvElementArea="1141, 770, 76, 38" CvTextArea="1154, 784, 51, 13" CvTextArgument="Importar" CvType="Button" DesignTimeRectangle="1143, 772, 74, 35" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Importar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Importar' role='push button' automationid='' check:fulltext='Importar' /&gt;" Guid="125c981d-5957-401e-8d01-80d54c6eaec1" InformativeScreenshot="8db478c9464a03a8a13cc98eeb7cac67.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="08f6c931-1501-489c-9bcd-ab9248d8f9cf" CvTextArea="728, 686, 39, 12" CvTextArgument="Arquivo" CvType="Text" DesignTimeRectangle="729, 685, 50, 14" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Arquivo' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Arquivo' role='text' automationid='' check:text='Arquivo' /&gt;" Guid="ae747f9e-0808-4b91-922c-fb166fa6a991" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message - Confirming import" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Confirmando importação...&quot;]" />
+            <Delay DisplayName="Delay to complete import" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_13" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sim' in 'Confirmar importar?'" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="a0d28417-3fec-484a-bedf-184def220581" CvElementArea="1011, 615, 55, 37" CvTextArea="1027, 627, 23, 11" CvTextArgument="Sim" CvType="Button" DesignTimeRectangle="1013, 616, 52, 35" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Sim' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sim' role='push button' automationid='' check:fulltext='Sim' /&gt;" Guid="3c48d2f5-757e-4a18-82bc-00f3165c92fd" InformativeScreenshot="aa4e5374bb1b801a419762af97c60293.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="870, 514, 106, 27" Guid="2ce79fcc-add0-443e-bcd1-5a2c76927ee9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGoAAAAbCAYAAACUXxrzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHTSURBVGhD7ZaBdYQgDIaZi0W6AfM4QOdgGYehEEkMGCqetW3afO/5DnIQkvyAumSowIRSggmlBBNKCSaUEkwoJZhQSjChlGBCKeEToda0eJec254Qq/kldl/hfUneL9nyAOuDvhtiCjfXiWGvrZso7kCorbB+wVByYM4n6l7luwqoZZ0YGnGKaHutZWShhEDWNeanthdPu4EWKHNCyIL2u6SIXG0upIi+4TePh5OGduwXv5FOIa7B1xV3oehb8NX9z30Nc6Pxb/u8WiMxrmZOzm+zirwuVKd4QwmAFmYn7WBnwUHQVXhsw3h2Snm/b1Pxq4/eP8LHnvmitbfbA9IF+yg3HF/7GAtv87j6OQPgChzVmnFdKOHYUpIUcEn+JLFmfEYaI7Vx50pFwLFnvrgNzH7b0VO5ZaR+H1c/RgBO4qjOHdNXH/FTQpV1pd3OkXxLbW4D8w2hRnH1cwTI/wQXPibY/X4a2ENCYVZQnJtC0fzJqw99FHh/FFc/5yYDoQqbOPiS5C87/vKkHdEE9sTVx+KpHy2H3Sj5ltrwe/4xIedWqLGAbRDXYc6RLzhRf5yJIv42TCgl/E+hFGJCKcGEUoIJpQQTSgkmlBJMKCWYUCpI6QParxg8SxttMgAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State 'Processamento terminado' message" sap:VirtualizedContainerService.HintSize="1040,704" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="60" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,455" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Import sucess" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Pedido de venda importado com sucesso!&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Fechar' " sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="280d4957-c919-4924-bc37-90d8560200b5" CvElementArea="1140, 631, 72, 37" CvTextArea="1157, 644, 39, 11" CvTextArgument="Fechar" CvType="Button" DesignTimeRectangle="1142, 632, 69, 35" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;ctrl automationid='' name='Fechar' role='push button' check:fulltext='Fechar' /&gt;" Guid="b2594e73-b7d0-4a31-97bd-15c9b643129b" InformativeScreenshot="86c39c06580ac51b99b3160fbcd43e89.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="280d4957-c919-4924-bc37-90d8560200b5" CvTextArea="807, 510, 151, 12" CvTextArgument="Processamento terminado." CvType="Text" DesignTimeRectangle="807, 510, 151, 12" ElementType="Text" Guid="e1d3ac70-d7b5-42ed-9d8c-2483c015d09f" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,352" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Import failed" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;Erro ao importar pedido de venda&quot;]" />
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Error in import Pedido de Venda" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_2" Reason="Processo finalizado por problemas ao importar pedido de venda no sistema TOTVS!" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="737, 470, 51, 59" DesignTimeScaleFactor="1" Guid="0aeafcab-b087-462d-a7c6-091950d5a8b1" ImageBase64="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" InformativeScreenshot="52d2f63a139f668270078ca199c6aa0c.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="8575c3f8-98c1-48f2-9fdd-14e3e1ebeb6a" CvTextArea="807, 508, 150, 12" CvTextArgument="Processamento terminado." CvType="Text" DesignTimeRectangle="807, 508, 150, 12" ElementType="Text" Guid="7f8a9a15-d947-494d-bdbe-c047a10c8c3c" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message search pedido de venda created" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Trace" Message="[&quot;Pesquisando pedido de vendas criado...&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Pesquisar' to search OrderTOTVS" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1040,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Text="[in_strOrderTOTVS]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="e5a93189-9625-416f-b624-a1ff70f1711d" CvElementArea="1625, 147, 236, 32" CvType="InputBox" DesignTimeRectangle="1626, 148, 204, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='self:cSeek' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='self:cSeek' role='editable text' automationid='' /&gt;" Guid="2db66b94-0874-4478-b4df-419a52d32527" InformativeScreenshot="472e6a8d260a2272deffd16b0e6e42bc.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="e5a93189-9625-416f-b624-a1ff70f1711d" CvTextArea="24, 113, 151, 16" CvTextArgument="Pedidos de Venda:" CvType="Text" DesignTimeRectangle="24, 113, 151, 16" ElementType="Text" Guid="a6405023-1046-4731-9172-3b323eeb64a5" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts to confirm search" sap:VirtualizedContainerService.HintSize="1040,247" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V4">
+              <uix:NKeyboardShortcuts.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NKeyboardShortcuts.VerifyOptions>
+            </uix:NKeyboardShortcuts>
+            <ui:LogMessage DisplayName="Log Message - Starting prepare Doc. Saída process" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Começando processo de liberação do documento de saída...&quot;]" />
+            <Delay DisplayName="Delay to open 'Outras ações' for Doc. Saída" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_6" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Outros' to prepare doc. saída" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="97f9aa86-e096-4686-95d6-905398138393" CvTextArea="355, 156, 68, 15" CvTextArgument="Outras Ações" CvType="Text" DesignTimeRectangle="334, 148, 120, 30" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Outras Ações' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Outras Ações' role='push button' automationid='' check:fulltext='Outras Ações' /&gt;" Guid="b8413ecd-f958-4d98-b9de-698dd3c4b533" InformativeScreenshot="6a849fba023564fc2abcea276f1ab7db.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="97f9aa86-e096-4686-95d6-905398138393" CvTextArea="24, 113, 151, 16" CvTextArgument="Pedidos de Venda:" CvType="Text" DesignTimeRectangle="24, 113, 151, 16" ElementType="Text" Guid="b096a0e0-60de-49cd-b61a-5d3216a66a39" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Prep.Doc.saída'" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="9cdadeff-714a-4bfe-a018-939c7474b5c2" CvTextArea="17, 116, 74, 13" CvTextArgument="Prep.Doc.saida" CvType="Text" DesignTimeRectangle="1, 111, 131, 22" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;ctrl name='Prep.Doc.saída' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Prep.Doc.saída' role='menu item' automationid='' check:fulltext='Prep.Doc.saída' /&gt;" Guid="52dca762-5ea6-444a-9cef-891771c26303" InformativeScreenshot="d1cc902d111f728edc2a7e899243fb05.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowPopupDropShadowSaveBits' title='smartclient' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <Delay DisplayName="Delay to load 'Avançar' button Part 1" Duration="00:00:04" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_9" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Avançar' - Part 1" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="3769c9a9-4d01-4d05-b92f-a75e740bd859" CvElementArea="1171, 753, 82, 39" CvTextArea="1180, 766, 62, 14" CvTextArgument="Avançar &gt;&gt;" CvType="Button" DesignTimeRectangle="1172, 754, 80, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' automationid='' check:fulltext='Avançar &amp;gt;&amp;gt;' /&gt;" Guid="73d336e9-21bb-493c-b610-30add6704e9c" InformativeScreenshot="12dd51fee080cfa33b8e40d0b44d1037.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="694, 484, 92, 26" Guid="39dcfd75-543c-4e74-a2d3-70fcfb1c11a5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAaCAYAAAA67jspAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFvSURBVGhD7ZWLbcQgDECZi4GYh2myTIZxQ8BgDD7SNLWi1k+K7jhz2Dw+cWCoYsKVMeHKmHBlTLgyJlyZfyx8g+AcOBeOb3qMwvcI/iykf3zcS4e3gMI83CvtdcJLIbz9Z3i7cB+hbSQstj3tBLSJxOi7+E7aLnye5hb4uAdbIP/lO1zOW5meXiJ8iN89PTI3rpQysboAO0Sf+2SHbTHO/5Dx8hhclMBkofMicMG8zfNIJ5XFl+1nWO/wA9xteWOVXTZ5phMd2rhARRQfbyW4xnFcLpznZXnqyWL9h3j6KcVxIz3DJeF4FZxCsbDuiqFIExeEf6LkSnmxhjZ5JlTMm+P1Onu/cPnKoIWk4vr4A8Kxrw8Qzk+6yL1QOW+JD1fUqs6ftudcvsP7VW6LMPZZFfId4akc4QVYx70o/KB7adeHCBrmTmtczYu354zCjV/FhCtjwpUx4cqYcGVMuDImXBkTrowJV8aEK2PCVQH4An1Xh6DPXmMQAAAAAElFTkSuQmCC" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message - Checking if strOrderTOTVSCompare is equals in_strOrderTOTVS" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;Verificando se o código gerado durante a preparação do documento corresponde ao código do Pedido TOTVS importado anteriormente.&quot;]" />
+            <uix:NGetText DisplayName="Get Text 'Pedido de Venda'" sap:VirtualizedContainerService.HintSize="1040,189" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" TextString="[strOrderTOTVSCompare]" Version="V4">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable CVScreenId="44e8adfb-3c95-4428-b4c9-37b0c72f2f4b" CvTextArea="983, 483, 37, 11" CvType="AnyWordGroup" DesignTimeRectangle="983, 483, 37, 11" DesignTimeScaleFactor="1" ElementType="Text" Guid="00cd8cf5-6c93-4c21-b4f2-41139a4dead1" InformativeScreenshot="9d5d0be49f5b86305ee47c1860b04602.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="44e8adfb-3c95-4428-b4c9-37b0c72f2f4b" CvTextArea="896, 483, 85, 11" CvTextArgument="Pedido de Venda:" CvType="Text" DesignTimeRectangle="896, 483, 85, 11" ElementType="Text" Guid="2e2a800f-a2b1-490c-95df-350fced390c4" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <If Condition="[strOrderTOTVSCompare.Equals(in_strOrderTOTVS)]" DisplayName="If - Check if prep. Doc Saída code is equals to in_strOrderTOTVS" sap:VirtualizedContainerService.HintSize="1040,569" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Pedido de Venda equals Prep. Doc de Saída" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;Código de Pedido de Vendas validado com sucesso durante a preparação do Documento de Saída.&quot;]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Failed to find Pedido de Venda created to Prep. Doc Saída" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_4" Reason="Foi identificado um código de Pedido de Venda diferente do esperado durante a preparação do Documento de Saída." />
+                </Sequence>
+              </If.Else>
+            </If>
+            <Delay DisplayName="Delay to load 'Avançar' button Part 2" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_8" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Avançar' - Part 2" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="3f61ed76-7cb9-469b-9555-61f8340835e8" ContentHash="omfX58iw2kCCsI4EugT9CQ" CvElementArea="1170, 753, 83, 39" CvTextArea="1180, 767, 62, 14" CvTextArgument="Avançar &gt;&gt;" CvType="Button" DesignTimeRectangle="1172, 755, 80, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' automationid='' check:fulltext='Avançar &amp;gt;&amp;gt;' /&gt;" Guid="01fcd0d4-d6c5-4f6d-83ea-207abd21229a" InformativeScreenshot="f2ee8dd0b70927e5917123e9b2c4cb80.png" Reference="AzH3SkzRfE-V5qj5Yzs_qA/EEulcWwJi0qnIxIYRB7AZw" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="b92a5c97-6298-4b91-b4aa-cb922177facf" CvElementArea="1070, 753, 83, 39" CvTextArea="1089, 767, 46, 11" CvTextArgument="&lt;&lt; Voltar" CvType="Button" DesignTimeRectangle="1072, 755, 80, 36" ElementType="Button" FullSelectorArgument="&lt;ctrl name='&amp;lt;&amp;lt; Voltar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='&amp;lt;&amp;lt; Voltar' role='push button' automationid='' check:fulltext='&amp;lt;&amp;lt; Voltar' /&gt;" Guid="0c703299-8159-460c-8ed1-4c1a96ab6765" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <Delay DisplayName="Delay to load 'Avançar' button Part 3" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_7" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Avançar' - Part 3" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="06a21453-8001-43a5-a99f-9e3b804e79e3" CvElementArea="1171, 753, 82, 39" CvTextArea="1180, 766, 62, 14" CvTextArgument="Avançar &gt;&gt;" CvType="Button" DesignTimeRectangle="1172, 754, 80, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Avançar &amp;gt;&amp;gt;' role='push button' automationid='' check:fulltext='Avançar &amp;gt;&amp;gt;' /&gt;" Guid="be958c6c-57a2-4383-8ef1-ee57d552bfa6" InformativeScreenshot="f65dc11a01c758e551d198c7994baaf7.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="06a21453-8001-43a5-a99f-9e3b804e79e3" CvTextArea="692, 508, 505, 13" CvTextArgument="O assistente identificou que 0 pedido de venda esta liberado (totalmente ou parcialmente) e irá utilizar os" CvType="Text" DesignTimeRectangle="692, 508, 505, 14" ElementType="Text" Guid="04227494-7318-457d-9d72-4228f0147c87" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State if message 'Concluiu com sucesso todos os passos' appear" sap:VirtualizedContainerService.HintSize="1040,826" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,577" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Doc. Saída OK" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Nenhuma mensagem de erro localizada ao preparar documento de saída&quot;]" />
+                  <Delay DisplayName="Delay to finish Doc. Saída" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_11" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Finalizar' prep. Doc. Saída" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="06da09b1-59bc-4181-b824-963e9ef53f57" CvElementArea="1171, 754, 82, 38" CvTextArea="1187, 767, 48, 12" CvTextArgument="Finalizar" CvType="Button" DesignTimeRectangle="1172, 755, 80, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Finalizar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Finalizar' role='push button' automationid='' check:fulltext='Finalizar' /&gt;" Guid="50df3389-a420-41f8-a170-b2ba04c98bfc" InformativeScreenshot="5c513c8b85f2fbb8c141725d9dade3eb.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="692, 506, 174, 25" Guid="9da873fb-42a5-4a58-b1c7-773ca09b6d4f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK4AAAAZCAYAAACowxUjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK6SURBVHhe7ZdNTgMxDIXnNi2HoephUCXOgpDoURAbjoLEihOEOGNnnIydTFtARHqLT6R24r+8mdLp4/MrADAaEC4YEggXDAmEC4YEwgVDAuGCIYFwwZBAuGBIIFwwJEq47+FhP4VpYg7nYuOP8/YYdvvH8Gr5Eudw3/S3uOXsL9DrtTsLUMPCnUW7O71nx9PhD8Tb4pbL/G9CgDB/nFm45mDjW2s6hqfCNvN6ujPezOUbe3kIHHvOafmVTep6PuY9OSfFOBxjndq+8WwNxZI9qm/da1H7Km8jjvQqf9NeqvMuPLxt8EtswcoRcWvdx1p5JrvTOc9nuSPBuguJ4dTl1GLP3Inv2p2eIrNwKcnqQp3BFU0ocRcxNtglTs9fryP0bXD/zPY8rAvP8ucl79JrGhbVtIqvhGblbcWhGopa1Hx7/vRZuKZWZ63mkthyF0VdnX7TfjXzazTizPZy4RIpoDwhahBi07Fadrmslp/WVJ/sYdLTp/dYQmidlTxEEUdRzaV4YHp5NWLvnfP8VixtI7bU6q0FssmcvLvY0m/rvsRWx7fsXk9xffm/Cqko+ylIqCKKN1ttr3O2/FUDRczeQL2zmroWwRvclrwasRd+Nbue34qlbcSWWr11DfncuzLqrs/3Zl7H9+xeT3F9+Y8zHYzW3ET+muB9dJ7ieXZp+qXjz0POlzjXuh6oIyDvLOebqURCfdH5dNZ4SL28rTh1PF1Xz5/yCDfU6q2Z5l2ZdbVqEfsy86s0YvUUP7NwiTkBqT2hApVQANkz/0ARIVDCfF4NxbSrwdnnOI98Tg8J75HaVIy1gDpna9KQeE8eFg+b7Vnwbl721XGsXtMPJj7X86c8imtr9daK7h3WdTm1eDPvxq/sZk8RJVwAxgHCBUMC4YIhgXDBkEC4YEggXDAkEC4YEggXDMhX+AZRxnM3D1iBUwAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,352" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Sucess message not appers" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Error" Message="[&quot;Localizamos um erro ao prepara Doc. de Saída!&#xA;&#xA;Message error: 'O documento de saída não foi gerado pois não há itens aptos a faturar.'&quot;]" />
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Error in prepare Doc. de saída" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_3" Reason="Processo finalizado por erro ao preparar Documento de Saída no sistema TOTVS!" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable CVScreenId="bcf0b3c8-b3b4-46b1-88d2-79c24aa6e4ef" CvTextArea="692, 508, 459, 15" CvTextArgument="O assistente concluiu com sucesso todos os passos para preparação do documento de saída." CvType="Text" DesignTimeRectangle="692, 508, 459, 15" DesignTimeScaleFactor="1" ElementType="Text" Guid="634398d3-f93d-4d2f-b145-fa3050b21dbb" InformativeScreenshot="fb6209310228d655ee39080eb1381bae.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="bcf0b3c8-b3b4-46b1-88d2-79c24aa6e4ef" CvTextArea="896, 483, 85, 11" CvTextArgument="Pedido de Venda:" CvType="Text" DesignTimeRectangle="896, 483, 85, 11" ElementType="Text" Guid="ca2bc5e3-8853-40b3-81ab-21954bcef12c" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message - Getting strCodeRPS" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Capturando código RPS...&quot;]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click in 'NF'" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_38" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="8ec55c53-f30f-4b90-a82b-88934e71394a" CvTextArea="909, 529, 55, 11" CvTextArgument="000002357" CvType="Text" DesignTimeRectangle="909, 528, 207, 16" DesignTimeScaleFactor="1" ElementType="ListItem" FuzzySelectorArgument="&lt;ctrl automationid='' role='list item' /&gt;" Guid="e790d678-e453-4d31-b836-4e8e69b82fa5" InformativeScreenshot="62ed824710dec5a9486ea4300b2d9701.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target DesignTimeRectangle="851, 528, 48, 18" Guid="bd5cd2a1-f17d-48ad-88b5-b4ae0faba7a5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAASCAYAAAAdZl26AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVEhL7ZI9DoAgDEaZnBkYGBzdPATX8AxehFO4eA/vwVWYaiFijD+MNl8CyQttIE1fWkW30y8bFE1AmncBP1OnRtK+fFxJD0ee3xSpC920ngX/piLAzTl/fLwJDDPZSxFJvgW4Se3KFEAFbLrzFCorJCxTF+DY5CmgTqDEjtcJVoAxLq0LsEDOoQSAaALSNAFpHgIhBCgeAjFGICLt9PL3YgN74GMAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                      <uix:Target CVScreenId="8ec55c53-f30f-4b90-a82b-88934e71394a" CvTextArea="856, 500, 30, 11" CvTextArgument="Serie" CvType="Text" DesignTimeRectangle="855, 499, 54, 29" ElementType="List" FullSelectorArgument="&lt;ctrl name='Serie' role='list' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Serie' role='list' automationid='' /&gt;" Guid="693e4c0f-d375-4293-82b5-dbd3088a34ae" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Double" DisplayName="Clicar Duas Vezes no strCodeRPS" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_39" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="96cf3fcc-dfda-484a-8473-2a3e1cf2a286" CvTextArea="909, 529, 55, 11" CvTextArgument="000002357" CvType="Text" DesignTimeRectangle="909, 528, 207, 16" DesignTimeScaleFactor="1" ElementType="ListItem" FuzzySelectorArgument="&lt;ctrl automationid='' role='list item' /&gt;" Guid="7d805cbd-8e21-439c-aacf-07985503d00a" InformativeScreenshot="6fdfab9fd53df5e618821681c7f477fb.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target DesignTimeRectangle="848, 528, 62, 19" Guid="f727c056-a87f-434a-b864-f6f2bce9aaeb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD4AAAATCAYAAADI876sAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADRSURBVFhH7ZMxDgIhEEWptqbYwsJyrTwEiWewsLbci3AKm72H96D3FFQjQ2YSYgyClTNI8jOwC5s83qyBytjf7jmP60lFxYQQcv0IXh6SHOZoBteWduPnA0zmCNbz4Q3sQmu/pncGTJHpstG+30q/cYZznj7yAr6ssMvPZaTPeIKzjq3LBP/OOMJhzdYrrS7gErqNI9CcrY9mnOcutf1I/zjDzQ7bejTjvBYIzmk3TjclPf3GleVvnBjfjvKglnQb11KbwHGT1lTBY4xqMyh4hCd4/dqkO2Iw+gAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                      <uix:Target CVScreenId="96cf3fcc-dfda-484a-8473-2a3e1cf2a286" CvTextArea="856, 500, 30, 11" CvTextArgument="Serie" CvType="Text" DesignTimeRectangle="855, 499, 54, 29" ElementType="List" FullSelectorArgument="&lt;ctrl name='Serie' role='list' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Serie' role='list' automationid='' /&gt;" Guid="9cbe2f2a-f45e-4b6e-bfb3-726741d834a5" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message - strCodeRPS captured" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Salvando código RPS in strCodeRPS...&quot;]" />
+            <uix:NGetText DisplayName="Get Text for strCodeRPS" sap:VirtualizedContainerService.HintSize="1040,189" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" TextString="[strCodeRPS]" Version="V4">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable CVScreenId="e2140951-4cdb-4e28-b4cb-41576f3dddc0" CvTextArea="913, 530, 52, 11" CvType="AnyWordGroup" DesignTimeRectangle="909, 529, 55, 11" DesignTimeScaleFactor="1" ElementType="Text" Guid="cfacdbc2-f92d-4175-8781-dcfd6556c571" InformativeScreenshot="f89160708aeb238c30702d4f2f82ac30.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="e2140951-4cdb-4e28-b4cb-41576f3dddc0" CvTextArea="909, 500, 32, 11" CvTextArgument="Notas" CvType="Text" DesignTimeRectangle="909, 499, 208, 29" ElementType="List" FullSelectorArgument="&lt;ctrl name='Notas' role='list' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Notas' role='list' automationid='' /&gt;" Guid="93f33d5c-594f-4853-832f-b3bab4ad8afa" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message - strCodeRPS is" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;O código RPS é: &quot; &amp; strCodeRPS]" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts para sair do Get Text" sap:VirtualizedContainerService.HintSize="1040,247" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(esc)][u(hk)]" Version="V4">
+              <uix:NKeyboardShortcuts.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NKeyboardShortcuts.VerifyOptions>
+            </uix:NKeyboardShortcuts>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ok' to close strCodeRPS bar" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="18340910-a10d-4504-8eb2-e05803650473" CvElementArea="1012, 675, 54, 24" CvTextArea="1031, 681, 15, 11" CvTextArgument="Ok" CvType="Button" DesignTimeRectangle="1013, 676, 52, 22" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Ok' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Ok' role='push button' automationid='' check:fulltext='Ok' /&gt;" Guid="2b512d4e-ae6e-4b32-80c7-02f8d6114891" InformativeScreenshot="d42b45155295b9a5c72849f71ebb182a.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="18340910-a10d-4504-8eb2-e05803650473" CvTextArea="855, 457, 82, 13" CvTextArgument="Serie / Notas" CvType="Text" DesignTimeRectangle="855, 456, 208, 26" ElementType="Text" FullSelectorArgument="&lt;ctrl name='Serie / Notas' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Serie / Notas' role='text' automationid='' check:text='Serie / Notas' /&gt;" Guid="2d6b84ee-78f7-4521-a2f7-6c8542642ffa" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <Delay DisplayName="Delay to load second 'Ok&quot; after Doc. Saída" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1040,122" sap2010:WorkflowViewState.IdRef="Delay_10" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK' to finish Doc. de Saída" sap:VirtualizedContainerService.HintSize="1040,225" sap2010:WorkflowViewState.IdRef="NClick_29" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="539bab0e-5fc8-4249-b7da-f118e73f990a" CvElementArea="1144, 724, 52, 37" CvTextArea="1160, 737, 18, 11" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="1145, 725, 50, 35" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='OK' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='OK' role='push button' automationid='' check:fulltext='OK' /&gt;" Guid="bb8facdf-00e6-4593-8522-dae0a598a02c" InformativeScreenshot="ad07ba04edc0c4189d05d0d0072ba4a0.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="748, 634, 233, 22" Guid="960f931c-c0e2-4a39-a63c-be5bc96854f7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOkAAAAWCAYAAAAl87svAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOYSURBVHhe7VhRTiMxDO1tgMO04jAIibMgpO1Rqv5wFKT94gSzcSbxPCd2JlMNJSv546lp7NjPz+NM4fD193tyOBzjwofU4RgcPqQOx+DwIXU4BocPqcMxOHxIHY7B4UPqcNyK69v0cHie3jXbjpBDSkkf36YL7pn4nF4eD9PxI6w3nftpAC/VfmdkbSyNflq7oXqzBefpOBTvms/l9Uk+Z1u17vTfZ0hV+29hUF6/NSz/65COxlvhc7l+rvrsAX1I6fP0PB0Ph+lAOJ3Zh26PuPcY7NqblNb5HPwU4HNFvAXzcGWfh1cQ4ON55azBi2zKWfLF+OJ7Ry7N5/0U1tyguZYYEzVN3ERs1V7/hEL9Fu4NzTJy/LBWe0B2o9ebein4E5czc2tqq+aHuhTum+ondNTBZ2/gY2nA+wSr9hivXYc9pFxMeM3nNe7HdTmk5Ps0vVzpXCqECLG9iIegIrioIiefnYehekuu8pr9+KzYJ4ES595chg+tSWD6rBpBn5lXaorgEu2LdgLRljUDjS3NEBifeRf6ithKnvB9tZcxDuiI6yp/0QstP/pXPhvqb9WhxezlY2rQ6HH0V57DlTrsIeWgy0NMBeKUV8kKMgJkCwXMt8UimmpnwgF4AyWUN43Jq3H2/QRNyfk6crV90o2IGqA2ID5zRrulnWhi+YAnHqgZAuOifzlE0d++sKqYrTja2tJN5DHy71U/ohVzjQ8Bc6sDDj1eqx1jKXXcZ0gjyUxe3mwVgDAPmtWAhOaQWmeTjX1hr/JFtHyYO9SH2uw9pNnOeYv9bKO4FEPrgcjbMaQ9cbS1pVtP/j3qxz2CFbOXj6WB1uOu2tN3pY5NQypJELmysGIAiRztI8lYIPgkUEGlaPwQsz9xMRph8TLPBr/498Mian8uzQfWue7snzVl8cEX7flMiXi2fihMzfI5Qo5r9UDkJV65to29xDjamj413az8ZYxb67fqMGJ28WlpYPW4UfuflTq2DWn4HoUJRIjYgyZ0JDTfBvK2SXvpj/K5EAkiN58L4PwBUYh8fikGofIiW+NszFfG68hV+8zCoz/HFpoq/1QQdqi5wFKf1M7ULIPjGj0QeWWvN/US41hrTVszf8qTbDfXT1DrMGJ28WlpoPSYsFJ7qw45pA5HifAgHau3k+Oe8CF1rILeOPXPSMe94EPqaCD9jOe/pxy/AR9Sh2Nw+JA6HIPDh9ThGBw+pA7H0Pie/gHX9iwZXoFdpgAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message - Doc Saída finished" sap:VirtualizedContainerService.HintSize="1040,175" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;Processo de liberação de Documento de Saída finalizado!&quot;]" />
+            <ui:UiElementExists DisplayName="Element Exists Pedidos de Vendas screen menu" Exists="[blnDisplayPedidodeVendaScreen]" sap:VirtualizedContainerService.HintSize="1040,139" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2403e310-7a50-477c-bcd6-3e7939ba5d75" InformativeScreenshot="97530ac2e39f68a60b651784ac36b22b" Selector="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;&lt;ctrl role='table' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[blnDisplayPedidodeVendaScreen = True]" DisplayName="Do While - Verify if can close Pedido de Vendas" sap:VirtualizedContainerService.HintSize="1040,1016" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Corpo Do While " sap:VirtualizedContainerService.HintSize="1006,877" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NCheckState DisplayName="Check App State 'Nfs-e' button display in screen" sap:VirtualizedContainerService.HintSize="972,817" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="2" Version="V4">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="468,344" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - Nfs-e button found" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Campo Nfs-e encontrado!&quot;]" />
+                        <Assign DisplayName="Assign to exit loop after verification" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[blnDisplayPedidodeVendaScreen]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,577" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message Nfs-e not found" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Verificando possibilidade de clique em Nfs-e&quot;]" />
+                        <Delay DisplayName="Delay for close Pedidos de Venda menu" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Close' to go for Menu" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_43" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CVScreenId="77a435be-9269-4dc9-9c32-1fea902eb86c" CvElementArea="1901, 112, 19, 20" CvType="CloseButton" DesignTimeRectangle="1898, 103, 26, 40" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;ctrl automationid='' role='push button' /&gt;" Guid="15049f6b-c47b-4a7e-9d38-1c53b30cada2" InformativeScreenshot="5a96e254ac320aaefd787a6b8b197507.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                  <uix:Target CVScreenId="77a435be-9269-4dc9-9c32-1fea902eb86c" CvTextArea="1889, 157, 29, 11" CvTextArgument="Filtrar" CvType="Text" DesignTimeRectangle="1884, 143, 40, 40" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Filtrar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Filtrar' role='push button' automationid='' check:fulltext='Filtrar' /&gt;" Guid="8a3cd638-d262-4abd-b5b6-6500443fdfd9" SearchSteps="Selector, FuzzySelector, CV" />
+                                  <uix:Target CVScreenId="77a435be-9269-4dc9-9c32-1fea902eb86c" CvTextArea="24, 113, 151, 16" CvTextArgument="Pedidos de Venda:" CvType="Text" DesignTimeRectangle="24, 113, 151, 16" ElementType="Text" Guid="70cd1f06-cd7b-454a-a1d2-02c60fe75bb4" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable CVScreenId="3872412a-3aab-4e59-b7f1-a3757648aa94" CvTextArea="37, 446, 31, 12" CvTextArgument="Nfs-e" CvType="Text" DesignTimeRectangle="37, 446, 31, 12" DesignTimeScaleFactor="1" ElementType="Text" Guid="f1019a3a-8174-41af-9daa-6937845572ce" InformativeScreenshot="5bb558e86a63dc8f9964ce2c86ef39e0.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="3872412a-3aab-4e59-b7f1-a3757648aa94" CvTextArea="16, 406, 56, 14" CvTextArgument="*Eavoritos" CvType="Text" DesignTimeRectangle="16, 406, 56, 14" ElementType="Text" Guid="6c4a056d-8127-42d6-8811-30a19fd0c40f" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleDoWhile>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" ContentHash="6-7lSeDFikStyiJ_0_L3HA" FilePath="C:\SmartClient_PRD\smartclient.exe" IconBase64="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" InformativeScreenshot="93042394a2eb8e1a2014c2726d4fafbc.png" Reference="AzH3SkzRfE-V5qj5Yzs_qA/0kGF4H74eE6msCH41gpKug" Selector="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0099 - Ver: 20.3.2.8' /&gt;" Title="TOTVS Serviços (TOTVS) 02.9.0099 - Ver: 20.3.2.8" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope to transfer strCodeRPS to ENERGISA - UiPath.xlsx" sap:VirtualizedContainerService.HintSize="1108,486" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[in_strEnergisaExcelFilePath]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,344" sap2010:WorkflowViewState.IdRef="Sequence_22">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - Transfering strCodeRPS to in_strEnergisaExcelFilePath" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Transferindo código RPS para planilha de controle armazenada em 'in_strEnergisaExcelFilePath'...&quot;]" />
+            <ui:ExcelWriteCell Cell="H13" DisplayName="Write Cell - Transfering strCodeRPS to in_strEnergisaExcelFilePath" sap:VirtualizedContainerService.HintSize="382,111" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="[&quot;Dados MT - &quot; &amp; in_strDatePDF]" Text="[strCodeRPS]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <Assign DisplayName="Assign to declare out_strCodeRPS argument " sap:VirtualizedContainerService.HintSize="1108,105" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_strCodeRPS]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[strCodeRPS]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

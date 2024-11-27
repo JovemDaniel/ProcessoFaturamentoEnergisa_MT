@@ -1,0 +1,12 @@
+﻿{
+  "Name": "TOTVS Serviços (TOTVS) 02.9.0099",
+  "Type": "App",
+  "Id": "hAC2G1UeL0e469K3RpUJow",
+  "Reference": "AzH3SkzRfE-V5qj5Yzs_qA/hAC2G1UeL0e469K3RpUJow",
+  "Created": "2024-11-12T15:05:29.1369229Z",
+  "Updated": "2024-11-12T15:05:29.1369229Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

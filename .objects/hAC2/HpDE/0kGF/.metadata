@@ -1,0 +1,16 @@
+﻿{
+  "Name": "TOTVS Serviços (TOTVS) 02.9.0099",
+  "Type": "Screen",
+  "Id": "0kGF4H74eE6msCH41gpKug",
+  "Reference": "AzH3SkzRfE-V5qj5Yzs_qA/0kGF4H74eE6msCH41gpKug",
+  "ParentRef": "AzH3SkzRfE-V5qj5Yzs_qA/HpDETUue9kiAFmIQy3nIRA",
+  "Created": "2024-11-12T15:05:29.1586336Z",
+  "Updated": "2024-11-18T16:44:58.714494Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

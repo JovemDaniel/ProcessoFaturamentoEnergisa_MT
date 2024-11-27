@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Click 'Avançar' - Part 2",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "EEulcWwJi0qnIxIYRB7AZw",
+  "Reference": "AzH3SkzRfE-V5qj5Yzs_qA/EEulcWwJi0qnIxIYRB7AZw",
+  "ParentRef": "AzH3SkzRfE-V5qj5Yzs_qA/0kGF4H74eE6msCH41gpKug",
+  "Created": "2024-11-14T16:21:11.8593083Z",
+  "Updated": "2024-11-14T16:21:11.8593083Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,681 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadingNFSemfaz" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strNFCode" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>DownloadingNFSemfaz_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Activities.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>UiPath.Testing</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.PDF.Activities.PDF</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.Testing</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DownloadingNFSemfaz" sap:VirtualizedContainerService.HintSize="1836,9478" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strSemfazURL" />
+      <Variable x:TypeArguments="x:String" Name="strUserSemfaz" />
+      <Variable x:TypeArguments="x:String" Name="strPasswordUserSemfaz" />
+      <Variable x:TypeArguments="x:String" Name="strPrintNFBar" />
+      <Variable x:TypeArguments="x:String" Name="strSourceNFFilePath" />
+      <Variable x:TypeArguments="x:String" Name="strDestinationNFFilePath" />
+      <Variable x:TypeArguments="x:String" Name="ReadPDFTextResult" />
+      <Variable x:TypeArguments="x:Int32" Name="intTotalPagesNFFile" />
+      <Variable x:TypeArguments="x:String" Name="strOutputNFFilePath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Initializing DownloadingNFSemfaz workflow" sap:VirtualizedContainerService.HintSize="1022,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando DownloadingNFSemfaz workflow...&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - strSemfazURL | strUserSemfaz" sap:VirtualizedContainerService.HintSize="1022,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strSemfazURL]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/login/login.jsf</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strUserSemfaz]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">07597745000129</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:GetPassword DisplayName="Get Password to strPasswordUserSemfaz" sap:VirtualizedContainerService.HintSize="1022,57" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHszfuffpb0KeloyjfVzsHQAAAAACAAAAAAADZgAAwAAAABAAAAC6cpz7BGl0j3oXLilLw1/rAAAAAASAAACgAAAAEAAAAPsz0nUbuw2nm0Nr8S+lk4IQAAAA2ESU9OmxgDeF3rkO3m7brBQAAAAfWgKwI59nKiwjsIt8nYVmnAW8tA==" Result="[strPasswordUserSemfaz]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: Sistema Tributário Municipal - STM" sap:VirtualizedContainerService.HintSize="1022,5652" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Always" ScopeGuid="5656b7e9-3071-4a75-8343-240b591f1669" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Fazer in strSemfazURL" sap:VirtualizedContainerService.HintSize="988,5403" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - Logging in Semfaz" sap:VirtualizedContainerService.HintSize="954,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Logando no site ofical da Semfaz - São Luís | MA...&quot;]" />
+            <ui:LogMessage DisplayName="Log Message - Typing User in Semfaz" sap:VirtualizedContainerService.HintSize="954,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Digitando CNPJ da Logos no campo User...&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayAfter="0" DelayBefore="0" DisplayName="Type Into User the strUserSemfaz" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Text="[strUserSemfaz]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/login/login.jsf" DesignTimeRectangle="671, 427, 554, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='frmLogin:txtLogin' tag='INPUT' type='text' class='focus span12' aaname='' /&gt;" Guid="a07b83f0-d5fc-49ba-aee1-0ea92d0b07f6" InformativeScreenshot="b3bfdb0fb95c5eb57c888be522f6f834.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="c280c3e8-0345-499b-8cba-54bbcb1f59a1" CvTextArea="686, 383, 110, 15" CvTextArgument="Acesso Restrito" CvType="Text" DesignTimeRectangle="672, 381, 123, 19" FuzzySelectorArgument="&lt;webctrl parentid='login-box' tag='SPAN' type='' class='' aaname='  &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;Acesso Restrito &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Acesso Restrito' /&gt;" Guid="6cb3f1ce-25c6-47b1-88af-b5b3eea25f57" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:LogMessage DisplayName="Log Message - Typing password in Semfaz" sap:VirtualizedContainerService.HintSize="954,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Digitando senha para acessar sistema Semfaz...&quot;]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayAfter="0" DelayBefore="0" DisplayName="Type Into 'Password' the strPasswordUserSemfaz" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Text="[strPasswordUserSemfaz]" Version="V4">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/login/login.jsf" CVScreenId="c280c3e8-0345-499b-8cba-54bbcb1f59a1" CvElementArea="668, 461, 559, 32" CvType="InputBox" DesignTimeRectangle="668, 461, 559, 33" DesignTimeScaleFactor="1" ElementType="InputBox" Guid="acf3ad5d-3247-4558-be42-efb731f150d9" InformativeScreenshot="3fb9542edb25c6a9cfa4ca8c71d6d3e5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1205, 463, 17, 28" FuzzySelectorArgument="&lt;webctrl class='icon-lock' parentid='frmLogin' tag='I' type='' aaname='' /&gt;" Guid="2a475c04-6d62-4f35-afcb-d2cebfa39117" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="1" DisplayName="Click 'Entrar' to Login in Semfaz" sap:VirtualizedContainerService.HintSize="954,225" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/login/login.jsf" CVScreenId="5a32973c-604a-4280-a727-eb870dd28cf9" CvElementArea="1167, 504, 58, 28" CvTextArea="1178, 511, 35, 12" CvTextArgument="Entrar" CvType="Button" DesignTimeRectangle="1168, 505, 55, 26" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='width-35 pull-right btn btn-small btn-primary' aaname='Entrar' check:text='Entrar' /&gt;" Guid="4f414381-db3a-44dc-a8b3-23f7bfd7574c" InformativeScreenshot="399f5ef9a2a490d51b146d41b307d541.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="5a32973c-604a-4280-a727-eb870dd28cf9" CvTextArea="673, 508, 121, 16" CvTextArgument="Esqueci minha senha" CvType="Text" DesignTimeRectangle="673, 507, 121, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='frmLogin' tag='A' type='' class='' aaname='Esqueci minha senha' check:innerText='Esqueci minha senha' /&gt;" Guid="b97a581e-5acd-4ede-b8b9-09084bb83c9a" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears" Retry="True">
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State 'Consulta de Talões Fiscais' bar appers" sap:VirtualizedContainerService.HintSize="954,879" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,630" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Sucess login in Semfaz" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Login realizado com sucesso!&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message - Opening 'Consulta de Talões Fiscais" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Abrindo aba de 'Consulta de Talões de Fiscais&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Consulta de Talões Fiscais'" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/login/bemVindo.jsf" CVScreenId="1d7ecd44-56a7-4aa4-a405-c585b2161a37" CvTextArea="676, 219, 182, 12" CvTextArgument="CONSULTA DE TALÕES FISCAIS" CvType="Text" DesignTimeRectangle="645, 205, 225, 40" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; CONSULTA DE TALÕES FISCAIS' tag='A' type='' class='' check:innerText='CONSULTA DE TALÕES FISCAIS' /&gt;" Guid="20193652-79dd-40c8-bf80-f174e24487d5" InformativeScreenshot="e0554b310845ca7ae1266c516740d900.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="1d7ecd44-56a7-4aa4-a405-c585b2161a37" CvTextArea="390, 138, 134, 13" CvTextArgument="Nota Fiscal Eletronica" CvType="Text" DesignTimeRectangle="363, 130, 184, 30" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='dropdown-toggle btn' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; Nota Fiscal Eletronica &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Nota Fiscal Eletronica' /&gt;" Guid="039f20df-c286-4263-bb46-b835611c4c78" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Failed to login in Semfaz" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="Ocorreu um erro ao logar no site da Semfaz! Não localizamos campo Consulta de Talões Fiscais" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/login/bemVindo.jsf" CVScreenId="8bcd010f-6abd-43cd-8f4c-ec9fe7a161ac" CvTextArea="676, 219, 182, 12" CvTextArgument="CONSULTA DE TALÕES FISCAIS" CvType="Text" DesignTimeRectangle="645, 205, 225, 40" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; CONSULTA DE TALÕES FISCAIS' tag='A' type='' class='' check:innerText='CONSULTA DE TALÕES FISCAIS' /&gt;" Guid="4540384f-d3cd-4481-bdd1-66deedb345ec" InformativeScreenshot="72bf833cdc758991fbccf89173d68468.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="8bcd010f-6abd-43cd-8f4c-ec9fe7a161ac" CvTextArea="390, 138, 134, 13" CvTextArgument="Nota Fiscal Eletronica" CvType="Text" DesignTimeRectangle="363, 130, 184, 30" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='dropdown-toggle btn' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; Nota Fiscal Eletronica &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Nota Fiscal Eletronica' /&gt;" Guid="dae425f2-eff4-4745-b02f-3bd24f07a6cc" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message - Checking if 'Consulta de Talões Fiscais' is opened" sap:VirtualizedContainerService.HintSize="954,175" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Checando se Consulta de Talões Fiscais está aberto...&quot;]" />
+            <uix:NCheckState DisplayName="Check App State 'Período Referência' inside 'Consulta de Talões Fiscais'" sap:VirtualizedContainerService.HintSize="954,2129" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,1880" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - if is 'Consulta Talões Fiscais' is opened" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Consulta de Talões Fiscais foi aberto corretamente...&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message - Typing 'Date Inicial' in Período Referência" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Selecionando data de hoje no campo de DATA INICIAL...&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Calendário Image' to set Inical date" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="1a0662b1-a737-4b8a-867e-47f8819f7c8c" CvElementArea="866, 537, 21, 22" CvType="Icon" DesignTimeRectangle="867, 538, 20, 20" DesignTimeScaleFactor="1" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl src='/sistematributario/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.iconimages.CalendarIcon/DATB/eAE7fv4Kw6znAA4mA-w_.jsf' tag='IMG' type='' class='rich-calendar-button ' aaname='' /&gt;" Guid="9f9b9721-5072-4d2c-8d78-825eeb82f255" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIESURBVEhLvZbPT9NgGMf3fxguePDAwXDx4sF/xkQSw8Eb8eLBizHx4oUTB2NIiCHExIRwQIKyJcSN6QgMWNZS1q2ltLCyaVNqytd9n62TdcI23XySb94ffft8nud9n75pwnVdZLNZjMoSvu8jk8m0hsO3RBiG/xeQ29oQff3yud0fRHHrAHCBfVxG4Hv44QXXqlrrllOto6IfdkG6AHQeXoa4sLdEnpUW1Y1UW9XSOhx1tVOOI5AbAdwWRkjHxuIkjKV70pbf3UV5YQL6/B1R6c246GhuTKTN3oJxsALbDXpn0Aa8vw97YwpOahpO8vGf1Xhmf3ookMr+Mqyzi/4A3BJGbX14ICDJpJWNZNTIJlLp7W2UGhn0DfA8D8F3E25+FkrqJZzca1jpF9CSz1HNvUJxbUbGleRTqB+f4DTzDIXlR9CUbVhOrTeg5p7KIVP72jn8n5AqOazUmnOKKXOMVtVtmdvdK0rftOwBAQ1n3DJWSFEzZC6f35EsTywTqlpsArbT/QPojBHyxb0DRZxdB1AKu01AblOe/zXgarQRgB/kVQCzLZtDAHA7hgbg4Y0EwIPllRFtx7Gp/3bWAnTMDQpgPdN5JDrd+ZaWlmvokOOoz3YgAOueiymWX1x0FldBr/cH4JVLSCSWXlwRPK6e1zWNC/5FcesCDNtGDwiCYIS/LcAvj85V6Ex4udsAAAAASUVORK5CYII=" InformativeScreenshot="19e54e9b8a2ca3e1c9464451d9487dd3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                            <uix:Target CVScreenId="1a0662b1-a737-4b8a-867e-47f8819f7c8c" CvTextArea="890, 540, 8, 13" CvTextArgument="à" CvType="Text" DesignTimeRectangle="890, 540, 8, 13" ElementType="Text" Guid="91fa4a80-2299-4b7f-a762-2e5d6bcec594" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                            <uix:Target CVScreenId="1a0662b1-a737-4b8a-867e-47f8819f7c8c" CvTextArea="762, 511, 112, 13" CvTextArgument="Período Referência:" CvType="Text" DesignTimeRectangle="763, 508, 370, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Período Referência:' tag='LABEL' type='' class='control-label' check:innerText='Período Referência:' /&gt;" Guid="20887580-8117-4332-93d6-d188cd1e37d2" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Today' in inicial date" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="1358f901-e8e2-47ea-ad77-6d199b822fc5" CvTextArea="936, 760, 36, 15" CvTextArgument="Today" CvType="Text" DesignTimeRectangle="935, 755, 39, 24" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='DIV' class='rich-calendar-tool-btn' aaname='Today' check:innerText='Today' /&gt;" Guid="9c34d586-64c0-4297-bc68-c12b57d5a6f8" InformativeScreenshot="2b4f843434d49b4ee62e307dfaace447.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="1358f901-e8e2-47ea-ad77-6d199b822fc5" CvTextArea="790, 598, 25, 15" CvTextArgument="Seg" CvType="Text" DesignTimeRectangle="790, 593, 26, 23" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' tag='TD' class='rich-calendar-days' aaname='Seg' check:innerText='Seg' /&gt;" Guid="3b33e98b-be7d-4991-98a5-ea8da712834d" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message - Typing 'Date Final' in Período Referência" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Selecionando data de hoje no campo de DATA FINAL...&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Calendário Image' to set Final date" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="d7fe1ba4-b977-4649-9e28-6d27812720d3" CvElementArea="1005, 537, 22, 22" CvType="Icon" DesignTimeRectangle="1006, 538, 20, 20" DesignTimeScaleFactor="1" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl type='' src='/sistematributario/a4j/g/3_3_3.Finalorg.richfaces.renderkit.html.iconimages.CalendarIcon/DATB/eAE7fv4Kw6znAA4mA-w_.jsf' tag='IMG' class='rich-calendar-button ' aaname='' /&gt;" Guid="e2c0a6e7-21b6-4d02-a840-0ba850d2970a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIESURBVEhLvZbPT9NgGMf3fxguePDAwXDx4sF/xkQSw8Eb8eLBizHx4oUTB2NIiCHExIRwQIKyJcSN6QgMWNZS1q2ltLCyaVNqytd9n62TdcI23XySb94ffft8nud9n75pwnVdZLNZjMoSvu8jk8m0hsO3RBiG/xeQ29oQff3yud0fRHHrAHCBfVxG4Hv44QXXqlrrllOto6IfdkG6AHQeXoa4sLdEnpUW1Y1UW9XSOhx1tVOOI5AbAdwWRkjHxuIkjKV70pbf3UV5YQL6/B1R6c246GhuTKTN3oJxsALbDXpn0Aa8vw97YwpOahpO8vGf1Xhmf3ookMr+Mqyzi/4A3BJGbX14ICDJpJWNZNTIJlLp7W2UGhn0DfA8D8F3E25+FkrqJZzca1jpF9CSz1HNvUJxbUbGleRTqB+f4DTzDIXlR9CUbVhOrTeg5p7KIVP72jn8n5AqOazUmnOKKXOMVtVtmdvdK0rftOwBAQ1n3DJWSFEzZC6f35EsTywTqlpsArbT/QPojBHyxb0DRZxdB1AKu01AblOe/zXgarQRgB/kVQCzLZtDAHA7hgbg4Y0EwIPllRFtx7Gp/3bWAnTMDQpgPdN5JDrd+ZaWlmvokOOoz3YgAOueiymWX1x0FldBr/cH4JVLSCSWXlwRPK6e1zWNC/5FcesCDNtGDwiCYIS/LcAvj85V6Ex4udsAAAAASUVORK5CYII=" InformativeScreenshot="9d97e2d3851a6825b05b7a9e0dd691f5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                            <uix:Target CVScreenId="d7fe1ba4-b977-4649-9e28-6d27812720d3" CvTextArea="890, 540, 8, 13" CvTextArgument="à" CvType="Text" DesignTimeRectangle="890, 540, 8, 13" ElementType="Text" Guid="bd2d463a-831f-480e-a9d9-c81682b37ba9" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                            <uix:Target CVScreenId="d7fe1ba4-b977-4649-9e28-6d27812720d3" CvTextArea="762, 511, 112, 13" CvTextArgument="Período Referência:" CvType="Text" DesignTimeRectangle="763, 508, 370, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Período Referência:' tag='LABEL' type='' class='control-label' check:innerText='Período Referência:' /&gt;" Guid="85d75a40-e11b-487c-8815-a5db2a11615d" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="0" DelayBefore="0" DisplayName="Click 'Today' in Date Final" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="1b11544d-8a8f-4df3-aea6-b1b8b915652d" CvTextArea="1075, 760, 36, 16" CvTextArgument="Today" CvType="Text" DesignTimeRectangle="1074, 755, 39, 24" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='DIV' class='rich-calendar-tool-btn' aaname='Today' check:innerText='Today' /&gt;" Guid="9ca49891-ac74-4ba4-adf4-03f65ec885ab" InformativeScreenshot="692813f4e333ddff0373b1b675f389b7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="1b11544d-8a8f-4df3-aea6-b1b8b915652d" CvTextArea="929, 598, 25, 15" CvTextArgument="Seg" CvType="Text" DesignTimeRectangle="929, 593, 26, 23" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' tag='TD' class='rich-calendar-days' aaname='Seg' check:innerText='Seg' /&gt;" Guid="f5b68fc1-720b-4859-825b-cd3e231aca86" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Consultar'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="4a25edd7-23fb-4fa1-84f2-6a4fd4f767ef" CvElementArea="1431, 601, 104, 33" CvTextArea="1460, 611, 62, 13" CvTextArgument="Consultar" CvType="Button" DesignTimeRectangle="1432, 603, 101, 30" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; Consultar' class='btn' tag='A' type='' check:innerText='Consultar' /&gt;" Guid="05fb696b-1d25-467b-a9ac-4e467348d3e5" InformativeScreenshot="b7a4441a4613179a5e036ca12997116d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="4a25edd7-23fb-4fa1-84f2-6a4fd4f767ef" CvTextArea="362, 376, 290, 20" CvTextArgument="Consulta de Talões Fiscais" CvType="Text" DesignTimeRectangle="363, 376, 1170, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' aaname='Consulta de Talões Fiscais' check:innerText='Consulta de Talões Fiscais' /&gt;" Guid="d8ca4701-f1fa-4b50-9cfd-1365bd057ff4" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message - Date filters configured" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Filtro de data configurado...&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Error to open Consulta de Talões Fiscais" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_2" Reason="Ocorreu um erro ao abrir o campo de Consulta de Talões Fiscais!" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="5bec4ca6-4da1-4cea-8541-737ae1e4cf4d" CvTextArea="762, 511, 112, 13" CvTextArgument="Período Referência:" CvType="Text" DesignTimeRectangle="763, 508, 370, 20" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Período Referência:' tag='LABEL' type='' class='control-label' check:innerText='Período Referência:' /&gt;" Guid="7f45eac4-0c5a-45a6-9480-c6ec636a436b" InformativeScreenshot="72f7693a24a3d92306d17e2830bfce94.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="5bec4ca6-4da1-4cea-8541-737ae1e4cf4d" CvTextArea="362, 376, 290, 20" CvTextArgument="Consulta de Talões Fiscais" CvType="Text" DesignTimeRectangle="363, 376, 1170, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' aaname='Consulta de Talões Fiscais' check:innerText='Consulta de Talões Fiscais' /&gt;" Guid="5559d9e3-71e7-43b2-87b4-84ddbaec14c0" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message - 'Imprimir talões' button" sap:VirtualizedContainerService.HintSize="954,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Checando botão para Imprimir talões...&quot;]" />
+            <uix:NCheckState DisplayName="Check App State 'Imprimir Talão' appers" sap:VirtualizedContainerService.HintSize="954,697" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Timeout="5" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,455" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Button 'Imprimir Talão' appers" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Botão Imprimir Talões localizado!&quot;]" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Imprimir Talão'" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5656b7e9-3071-4a75-8343-240b591f1669" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="7f88883d-6a88-4369-a525-73a58f4f65fa" CvElementArea="1391, 870, 137, 33" CvTextArea="1422, 879, 92, 17" CvTextArgument="Imprimir Talão" CvType="Button" DesignTimeRectangle="1391, 870, 137, 33" DesignTimeScaleFactor="1" ElementType="Button" Guid="6e2f8e64-5dad-4a01-9277-0bd26f7c50c9" InformativeScreenshot="5eb70a9cac39c840fb34300fd9ec0d9d.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Sistema Tributário Municipal - STM e mais 1 página - Pessoal — M*' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="7f88883d-6a88-4369-a525-73a58f4f65fa" CvElementArea="1423, 528, 104, 33" CvTextArea="1453, 537, 61, 14" CvTextArgument="Consultar" CvType="Button" DesignTimeRectangle="1423, 528, 104, 33" ElementType="Button" Guid="04b3787e-c88c-4047-897b-08071d04a1aa" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow - Fail to find 'Imprimir Talão'" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_3" Reason="Não conseguimos localizar botão Imprimir Talão!" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" CVScreenId="7f88883d-6a88-4369-a525-73a58f4f65fa" CvElementArea="1391, 870, 137, 33" CvTextArea="1422, 879, 92, 17" CvTextArgument="Imprimir Talão" CvType="Button" DesignTimeRectangle="1391, 870, 137, 33" DesignTimeScaleFactor="1" ElementType="Button" Guid="53e354c7-6848-47bd-afd3-6fa53d71c3ca" InformativeScreenshot="d1fa5eb32a32b9d691885cb78c5c24f4.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Sistema Tributário Municipal - STM e mais 1 página - Pessoal — M*' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="7f88883d-6a88-4369-a525-73a58f4f65fa" CvElementArea="1423, 528, 104, 33" CvTextArea="1453, 537, 61, 14" CvTextArgument="Consultar" CvType="Button" DesignTimeRectangle="1423, 528, 104, 33" ElementType="Button" Guid="3a1bc3ed-d567-4432-99db-0f15cbac51c8" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Edge" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_1" InformativeScreenshot="50ef8594e422927bf117be0d81281de3.jpg" Selector="&lt;html app='msedge.exe' title='Sistema Tributário Municipal - STM' /&gt;" Title="Sistema Tributário Municipal - STM" Url="[strSemfazURL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:MultipleAssign DisplayName="Multiple Assign - strPrintNFBar | strSourceNFPath | strDestinationNFPath" sap:VirtualizedContainerService.HintSize="1022,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strPrintNFBar]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strSourceNFFilePath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">C:\Users\luis.nascimento\Downloads\talao.pdf</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strDestinationNFFilePath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">C:\Users\luis.nascimento\Documents\Teste UI Path\FATURAMENTO_ENERGISA\NF'S\talao.pdf</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strOutputNFFilePath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">["C:\Users\luis.nascimento\Documents\Teste UI Path\FATURAMENTO_ENERGISA\NF'S\NF'S MT\NF_" &amp; in_strNFCode &amp; ".pdf"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: consultaTalaoFiscalFiltro.jsf" sap:VirtualizedContainerService.HintSize="1022,1488" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="9b8349ad-a203-4968-933e-866a4979e1c1" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Fazer in consultaTalaoFiscalFiltro.jsf" sap:VirtualizedContainerService.HintSize="484,1239" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="strSourceNFPathExists" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'Save button' appers" sap:VirtualizedContainerService.HintSize="450,84" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="9b8349ad-a203-4968-933e-866a4979e1c1" Version="V4">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,424" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts to download tax receipts" sap:VirtualizedContainerService.HintSize="416,247" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]s[u(ctrl)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V4">
+                    <uix:NKeyboardShortcuts.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NKeyboardShortcuts.VerifyOptions>
+                  </uix:NKeyboardShortcuts>
+                  <Delay DisplayName="Delay to wait download complete" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://stm.semfaz.saoluis.ma.gov.br/sistematributario/jsp/consultaTalaoFiscal/consultaTalaoFiscalFiltro.jsf" DesignTimeRectangle="1747, 129, 37, 32" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='consultaTalaoFiscalFiltro.jsf' role='document' /&gt;&lt;ctrl name='Barra de PDF' role='tool bar' /&gt;&lt;ctrl name='Salvar (Ctrl+B)' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='consultaTalaoFiscalFiltro.jsf' role='document' /&gt;&lt;ctrl name='Barra de PDF' role='tool bar' /&gt;&lt;ctrl name='Salvar (Ctrl+B)' role='push button' automationid='' /&gt;" Guid="addb6a11-d56e-4af4-a7c9-632e9dd22b40" InformativeScreenshot="1d6266480e7e864be2f5a849aca82994.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='consultaTalaoFiscalFiltro.jsf e mais 2 páginas - Pessoal — Micro*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1711, 129, 37, 32" ElementType="Button" FullSelectorArgument="&lt;ctrl name='consultaTalaoFiscalFiltro.jsf' role='document' /&gt;&lt;ctrl name='Barra de PDF' role='tool bar' /&gt;&lt;ctrl name='Imprimir (Ctrl+P)' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='consultaTalaoFiscalFiltro.jsf' role='document' /&gt;&lt;ctrl name='Barra de PDF' role='tool bar' /&gt;&lt;ctrl name='Imprimir (Ctrl+P)' role='push button' automationid='' /&gt;" Guid="dacf83b9-3898-4daa-83d1-c93e909e3dac" SearchSteps="Selector, FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:FileExistsX DisplayName="File Exists - strSourceNFPath to strSourceNFPathExists" Exists="[strSourceNFPathExists]" sap:VirtualizedContainerService.HintSize="450,165" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[strSourceNFFilePath]" />
+            <If Condition="[strSourceNFPathExists = True]" DisplayName="If strSourceNFPathExist is equals True move file" sap:VirtualizedContainerService.HintSize="450,928" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,592" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Sucess in download NF" sap:VirtualizedContainerService.HintSize="382,175" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Download de NFs concluído!&quot;]" />
+                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[strDestinationNFFilePath]" DisplayName="Move File of strSourceNFPath to strDestinationNFPath" sap:VirtualizedContainerService.HintSize="382,191" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[strSourceNFFilePath]" />
+                  <ui:LogMessage DisplayName="Log Message - Talão moved to strDestinationNFPath" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Arquivo movido para destino armazenado em 'strDestinationNFPath'!&quot;]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow if not found file 'talao.pdf'" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_4" Reason="Não conseguimos encontrar arquivo 'talao.pdf' na pasta Downloads." />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Edge" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_2" InformativeScreenshot="e858f58fe0758e9480c2ceb0583ba54b.jpg" Selector="&lt;html app='msedge.exe' title='consultaTalaoFiscalFiltro.jsf' /&gt;" Title="consultaTalaoFiscalFiltro.jsf" Url="[strPrintNFBar]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <upap:GetPDFPageCount DisplayName="Get PDF Page Count in strDestinationNFFilePath" FileName="[strDestinationNFFilePath]" sap:VirtualizedContainerService.HintSize="1022,114" sap2010:WorkflowViewState.IdRef="GetPDFPageCount_1" PageCount="[intTotalPagesNFFile]" />
+    <ui:LogMessage DisplayName="Log Message - Verify if talao.pdf contains in_strNFCode" sap:VirtualizedContainerService.HintSize="1022,173" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Verificando se arquivo talao.pdf contém NF idêntica ao código NF do Protheus...&quot;]" />
+    <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each currentNumbercurrentNumberstrDestinationNFFilePath" sap:VirtualizedContainerService.HintSize="1022,1378" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1, intTotalPagesNFFile)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Int32">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="currentNumber" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Corpo in For Each strDestionationNFFilePath" sap:VirtualizedContainerService.HintSize="484,1241" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text in strDestinationNFFilePath" FileName="[strDestinationNFFilePath]" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[ReadPDFTextResult]" />
+            <If Condition="[ReadPDFTextResult.Contains(in_strNFCode)]" DisplayName="If talao.pdf contains in_strNFCode" sap:VirtualizedContainerService.HintSize="450,1067" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,733" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - NF Code sucess found" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Código de NF foi encontrado no talao.PDF!&quot;]" />
+                  <upap:ExtractPDFPageRange DisplayName="Extract PDF Page Range to strOutputNFFilePath" FileName="[strDestinationNFFilePath]" sap:VirtualizedContainerService.HintSize="382,167" sap2010:WorkflowViewState.IdRef="ExtractPDFPageRange_2" OutputFileName="[strOutputNFFilePath]" Range="[intTotalPagesNFFile.ToString]" />
+                  <ui:DeleteFileX DisplayName="Delete File talao.pdf" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[strDestinationNFFilePath]" />
+                  <ui:LogMessage DisplayName="Log Message - NF name file" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Arquivo foi salvo no nome: NF_&quot; &amp; in_strNFCode &amp; &quot;.pdf&quot;]" />
+                  <ui:Break DisplayName="Break to finish loop" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Break_1" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TerminateWorkflow DisplayName="Terminate Workflow - NF Code failed found" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_5" Reason="Código de NF NÃO foi encontrado no talao.PDF!" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

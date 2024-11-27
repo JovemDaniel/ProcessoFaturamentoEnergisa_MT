@@ -1,0 +1,20 @@
+Sub FormatarValoresLayout()
+    Dim ws As Worksheet
+    Dim ultimaLinha As Long
+    Dim i As Long
+    Set ws = ActiveSheet
+
+    ' Encontrar a última linha preenchida na coluna D
+    ultimaLinha = ws.Cells(ws.Rows.Count, "D").End(xlUp).Row
+
+    ' Loop através de todas as células na coluna D
+    For i = 1 To ultimaLinha
+        ' Remover os pontos do valor da célula
+        ws.Cells(i, "D").Value = Replace(ws.Cells(i, "D").Value, ".", "")
+        
+        ' Tentar converter o valor para número
+        If IsNumeric(ws.Cells(i, "D").Value) Then
+            ws.Cells(i, "D").Value = CDbl(ws.Cells(i, "D").Value) ' Converte para número
+        End If
+    Next i
+End Sub
