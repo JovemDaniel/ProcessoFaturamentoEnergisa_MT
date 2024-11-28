@@ -129,7 +129,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessDataInTOTVS" sap:VirtualizedContainerService.HintSize="1836,14734" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessDataInTOTVS" sap:VirtualizedContainerService.HintSize="1836,14696" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strCodeRPS" />
     </Sequence.Variables>
@@ -139,13 +139,13 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Inicialization process ProcessDataInTOTVS" sap:VirtualizedContainerService.HintSize="1108,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Iniciando fluxo ProcessDataInTOTVS.xaml&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="TOTVS Serviços (TOTVS) 02.9.0099" sap:VirtualizedContainerService.HintSize="1108,13947" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="TOTVS Serviços (TOTVS) 02.9.0099" sap:VirtualizedContainerService.HintSize="1108,13909" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1074,13624" sap2010:WorkflowViewState.IdRef="Sequence_24">
+          <Sequence sap:VirtualizedContainerService.HintSize="1074,13586" sap2010:WorkflowViewState.IdRef="Sequence_24">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="blnDisplayPedidodeVendaScreen" />
               <Variable x:TypeArguments="x:String" Name="strOrderTOTVSCompare" />
@@ -155,7 +155,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check App State 'Bem vindo à home do faturamento' message" sap:VirtualizedContainerService.HintSize="1040,1441" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="20" Version="V4">
+            <uix:NCheckState DisplayName="Check App State 'Bem vindo à home do faturamento' message" sap:VirtualizedContainerService.HintSize="1040,1401" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="20" Version="V4">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,1152" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
@@ -429,9 +429,9 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NCheckState DisplayName="Check App State 'Processamento terminado' message" sap:VirtualizedContainerService.HintSize="1040,912" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="60" Version="V4">
+            <uix:NCheckState DisplayName="Check App State 'Processamento terminado' message" sap:VirtualizedContainerService.HintSize="1040,914" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Timeout="40" Version="V4">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="484,663" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="484,665" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -459,14 +459,14 @@
                 </Sequence>
               </uix:NCheckState.IfExists>
               <uix:NCheckState.IfNotExists>
-                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,451" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,455" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - Import sucess" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Pedido de venda importado com sucesso!&quot;]" />
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Fechar' " sap:VirtualizedContainerService.HintSize="416,216" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Fechar' " sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e609ed5e-3b96-4cf9-ae16-596df4df1ec5" Version="V4">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable CVScreenId="280d4957-c919-4924-bc37-90d8560200b5" CvElementArea="1140, 631, 72, 37" CvTextArea="1157, 644, 39, 11" CvTextArgument="Fechar" CvType="Button" DesignTimeRectangle="1142, 632, 69, 35" DesignTimeScaleFactor="1" ElementType="Button" FuzzySelectorArgument="&lt;ctrl automationid='' name='Fechar' role='push button' check:fulltext='Fechar' /&gt;" Guid="b2594e73-b7d0-4a31-97bd-15c9b643129b" InformativeScreenshot="86c39c06580ac51b99b3160fbcd43e89.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -492,7 +492,7 @@
               <uix:NCheckState.Target>
                 <uix:TargetAnchorable CVScreenId="f55cdf53-62e4-429a-9370-98d29341e44c" CvTextArea="807, 535, 199, 14" CvTextArgument="Houveram erros no processamento." CvType="Text" DesignTimeRectangle="807, 535, 199, 14" DesignTimeScaleFactor="1" ElementType="Text" Guid="40611861-6102-43c5-bc0e-adb049ec14d0" InformativeScreenshot="7b96c40e49f4f2d28301e0e423ef9c90.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target CVScreenId="f55cdf53-62e4-429a-9370-98d29341e44c" CvTextArea="807, 493, 150, 12" CvTextArgument="Processamento terminado." CvType="Text" DesignTimeRectangle="807, 493, 150, 12" ElementType="Text" Guid="652efaaa-d3a7-4a3e-8e67-e9a7b7e43398" SearchSteps="CV" TargetType="ComputerVisionBased" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>

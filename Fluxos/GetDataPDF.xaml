@@ -119,7 +119,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetDataPDF" sap:VirtualizedContainerService.HintSize="1836,8304" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetDataPDF" sap:VirtualizedContainerService.HintSize="1836,8684" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_LayoutData" />
       <Variable x:TypeArguments="x:String" Name="strEnergisaExcelFilePath" />
@@ -150,9 +150,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log message - Start process GetDataPDF" sap:VirtualizedContainerService.HintSize="482,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicando leitura de dados de PDF's encontrados&quot;]" />
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text - Reading the data from each PDF" FileName="[in_strMedicaoLoteMTFileName]" sap:VirtualizedContainerService.HintSize="482,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[strDataPDF]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign to define the variables for collect Data from PDFs" sap:VirtualizedContainerService.HintSize="482,334" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+    <ui:LogMessage DisplayName="Log message - Start process GetDataPDF" sap:VirtualizedContainerService.HintSize="520,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicando leitura de dados de PDF's encontrados&quot;]" />
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text - Reading the data from each PDF" FileName="[in_strMedicaoLoteMTFileName]" sap:VirtualizedContainerService.HintSize="520,114" sap2010:WorkflowViewState.IdRef="ReadPDFText_3" Range="All" Text="[strDataPDF]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign to define the variables for collect Data from PDFs" sap:VirtualizedContainerService.HintSize="520,334" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
@@ -214,7 +214,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Assign DisplayName="Assign to define path to Energisa - UiPath.xlsx" sap:VirtualizedContainerService.HintSize="482,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign DisplayName="Assign to define path to Energisa - UiPath.xlsx" sap:VirtualizedContainerService.HintSize="520,114" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strEnergisaExcelFilePath]</OutArgument>
       </Assign.To>
@@ -228,13 +228,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Pasting Data in excel file Energisa - UiPath" sap:VirtualizedContainerService.HintSize="482,3861" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_7" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[strEnergisaExcelFilePath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Pasting Data in excel file Energisa - UiPath" sap:VirtualizedContainerService.HintSize="520,3791" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_7" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[strEnergisaExcelFilePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer - Pasting Data in excel file Energisa - UiPath" sap:VirtualizedContainerService.HintSize="416,3719" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Fazer - Pasting Data in excel file Energisa - UiPath" sap:VirtualizedContainerService.HintSize="416,3649" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -354,35 +354,24 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
             <ui:LogMessage DisplayName="Log Message - Reading Data from new sheet" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_42" Level="Trace" Message="[&quot;Lendo dados da planilha criada...&quot;]" />
-            <ui:ExcelReadCell Cell="G1" DisplayName="Read Cell - ClientCode" sap:VirtualizedContainerService.HintSize="382,92" sap2010:WorkflowViewState.IdRef="ExcelReadCell_19" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
-              <ui:ExcelReadCell.Result>
-                <OutArgument x:TypeArguments="ui:GenericValue">[strClientCode]</OutArgument>
-              </ui:ExcelReadCell.Result>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="G2" DisplayName="Read Cell - NatureCode" sap:VirtualizedContainerService.HintSize="382,92" sap2010:WorkflowViewState.IdRef="ExcelReadCell_20" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
+            <ui:ExcelReadCell Cell="G2" DisplayName="Read Cell - NatureCode" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelReadCell_20" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="x:String">[strNatureCode]</OutArgument>
               </ui:ExcelReadCell.Result>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="G3" DisplayName="Read Cell - ProductCode" sap:VirtualizedContainerService.HintSize="382,92" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
+            <ui:ExcelReadCell Cell="G3" DisplayName="Read Cell - ProductCode" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="x:String">[strProductCode]</OutArgument>
               </ui:ExcelReadCell.Result>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -443,6 +432,17 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExecuteMacro>
             <ui:LogMessage DisplayName="Log Message - Macro finished" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Info" Message="[&quot;Macro 'FormatarCelulas' finalizada!&quot;]" />
+            <ui:ExcelReadCell Cell="G1" DisplayName="Read Cell - ClientCode" sap:VirtualizedContainerService.HintSize="382,92" sap2010:WorkflowViewState.IdRef="ExcelReadCell_27" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[strClientCode]</OutArgument>
+              </ui:ExcelReadCell.Result>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ExcelReadCell>
             <ui:ExcelReadCell Cell="G9" DisplayName="Read Cell - State" sap:VirtualizedContainerService.HintSize="382,83" sap2010:WorkflowViewState.IdRef="ExcelReadCell_26" SheetName="[&quot;Dados MT - &quot; &amp; strDatePDF]">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="x:String">[strState]</OutArgument>
@@ -464,7 +464,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Assign DisplayName="Assign - Declaring Path to Import_Layout File" sap:VirtualizedContainerService.HintSize="482,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+    <Assign DisplayName="Assign - Declaring Path to Import_Layout File" sap:VirtualizedContainerService.HintSize="520,114" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strImportLayoutPath]</OutArgument>
       </Assign.To>
@@ -478,20 +478,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - LayoutTOTVS" sap:VirtualizedContainerService.HintSize="482,1812" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_8" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[strImportLayoutPath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - LayoutTOTVS" sap:VirtualizedContainerService.HintSize="520,2262" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_8" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[strImportLayoutPath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,1670" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="486,2120" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message - Transferindo dados Layout TOTVS" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_46" Level="Info" Message="[&quot;Transferindo dados para Layout_TOTVS.xlsm...&quot;]" />
-            <ui:ExcelWriteCell Cell="B3" DisplayName="Write Cell - ProductCode" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_58" SheetName="LayoutSheet" Text="[strProductCode]">
+            <ui:LogMessage DisplayName="Log Message - Transferindo dados Layout TOTVS" sap:VirtualizedContainerService.HintSize="452,173" sap2010:WorkflowViewState.IdRef="LogMessage_46" Level="Info" Message="[&quot;Transferindo dados para Layout_TOTVS.xlsm...&quot;]" />
+            <ui:ExcelWriteCell Cell="B3" DisplayName="Write Cell - ProductCode" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_58" SheetName="LayoutSheet" Text="[strProductCode]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -499,7 +499,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="C2" DisplayName="Write Cell - OrderTOTVS" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_59" SheetName="LayoutSheet" Text="[strOrderTOTVS]">
+            <ui:ExcelWriteCell Cell="C2" DisplayName="Write Cell - OrderTOTVS" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_59" SheetName="LayoutSheet" Text="[strOrderTOTVS]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -507,39 +507,34 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="D2" DisplayName="Write Cell - ClientCode" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_60" SheetName="LayoutSheet" Text="[strClientCode]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="D3" DisplayName="Write Cell - TotalCost" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_61" SheetName="LayoutSheet" Text="[strTotalCost]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="G2" DisplayName="Write Cell - PaymentCondition" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_62" SheetName="LayoutSheet" Text="[strPaymentCondition]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="H2" DisplayName="Write Cell - OrderType" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_63" SheetName="LayoutSheet" Text="[strOrderType]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="I2" DisplayName="Write Cell - NatureCode" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_64" SheetName="LayoutSheet" Text="[strNatureCode]">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,402" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteCell Cell="D2" DisplayName="Write Cell - ClientCode" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_60" SheetName="LayoutSheet" Text="[strClientCode]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ExcelWriteCell>
+                  <ui:ExcelWriteCell Cell="D3" DisplayName="Write Cell - TotalCost" sap:VirtualizedContainerService.HintSize="382,111" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_61" SheetName="LayoutSheet" Text="[strTotalCost]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ExcelWriteCell>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:ExcelWriteCell Cell="G2" DisplayName="Write Cell - PaymentCondition" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_62" SheetName="LayoutSheet" Text="[strPaymentCondition]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -547,7 +542,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="J2" DisplayName="Write Cell - CommentText" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_65" SheetName="LayoutSheet" Text="[strCommentText]">
+            <ui:ExcelWriteCell Cell="H2" DisplayName="Write Cell - OrderType" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_63" SheetName="LayoutSheet" Text="[strOrderType]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -555,7 +550,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="L2" DisplayName="Write Cell - CityPDF" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_66" SheetName="LayoutSheet" Text="[strState]">
+            <ui:ExcelWriteCell Cell="I2" DisplayName="Write Cell - NatureCode" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_64" SheetName="LayoutSheet" Text="[strNatureCode]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -563,7 +558,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelWriteCell>
-            <ui:ExcelWriteCell Cell="M2" DisplayName="Write Cell - MunicipalityPDF" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_67" SheetName="LayoutSheet" Text="[strMunicipalityPDF]">
+            <ui:ExcelWriteCell Cell="J2" DisplayName="Write Cell - CommentText" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_65" SheetName="LayoutSheet" Text="[strCommentText]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -571,7 +566,34 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelWriteCell>
-            <ui:LogMessage DisplayName="Log Message - Transfer finished" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[&quot;Transferência de dados concluída para LayoutTOTVS.xlsm&quot;]">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,402" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteCell Cell="L2" DisplayName="Write Cell - CityPDF" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_66" SheetName="LayoutSheet" Text="[strState]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ExcelWriteCell>
+                  <ui:ExcelWriteCell Cell="M2" DisplayName="Write Cell - MunicipalityPDF" sap:VirtualizedContainerService.HintSize="382,111" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_67" SheetName="LayoutSheet" Text="[strMunicipalityPDF]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ExcelWriteCell>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:LogMessage DisplayName="Log Message - Transfer finished" sap:VirtualizedContainerService.HintSize="452,173" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[&quot;Transferência de dados concluída para LayoutTOTVS.xlsm&quot;]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -579,7 +601,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
-            <ui:LogMessage DisplayName="Log Message - FormatarValoresLayout" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[&quot;Executando macro 'FormatarValoresLayout'...&quot;]">
+            <ui:LogMessage DisplayName="Log Message - FormatarValoresLayout" sap:VirtualizedContainerService.HintSize="452,173" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[&quot;Executando macro 'FormatarValoresLayout'...&quot;]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -587,7 +609,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
-            <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" sap2010:Annotation.AnnotationText="A macro FormatarValoresLayout corrige problemas de formatação na coluna D, convertendo valores para o formato correto e garantindo consistência dos dados na planilha." DisplayName="Execute Macro - FormatarValoresLayout" sap:VirtualizedContainerService.HintSize="382,174" sap2010:WorkflowViewState.IdRef="ExecuteMacro_9" MacroName="FormatarValoresLayout">
+            <ui:ExecuteMacro ContinueOnError="{x:Null}" MacroOutput="{x:Null}" sap2010:Annotation.AnnotationText="A macro FormatarValoresLayout corrige problemas de formatação na coluna D, convertendo valores para o formato correto e garantindo consistência dos dados na planilha." DisplayName="Execute Macro - FormatarValoresLayout" sap:VirtualizedContainerService.HintSize="452,174" sap2010:WorkflowViewState.IdRef="ExecuteMacro_9" MacroName="FormatarValoresLayout">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -596,7 +618,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExecuteMacro>
-            <ui:LogMessage DisplayName="Log Message - Finished macro FormatarValoresLayout" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;Macro 'FormatarValoresLayout' executada!&quot;]">
+            <ui:LogMessage DisplayName="Log Message - Finished macro FormatarValoresLayout" sap:VirtualizedContainerService.HintSize="452,173" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;Macro 'FormatarValoresLayout' executada!&quot;]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -604,7 +626,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
-            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_LayoutData]" DisplayName="Read Range - strLayoutData" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="LayoutSheet">
+            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_LayoutData]" DisplayName="Read Range - strLayoutData" sap:VirtualizedContainerService.HintSize="452,48" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="LayoutSheet">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -622,8 +644,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:LogMessage DisplayName="Log Message - Transforming LayoutTOTVs to CSV" sap:VirtualizedContainerService.HintSize="482,173" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Trace" Message="[&quot;Transformando LayoutTOTVS para CSV...&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - ImportCsv File | strReadTextPath | strWriteTextPath" sap:VirtualizedContainerService.HintSize="482,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+    <ui:LogMessage DisplayName="Log Message - Transforming LayoutTOTVs to CSV" sap:VirtualizedContainerService.HintSize="520,173" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Trace" Message="[&quot;Transformando LayoutTOTVS para CSV...&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - ImportCsv File | strReadTextPath | strWriteTextPath" sap:VirtualizedContainerService.HintSize="520,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
@@ -653,14 +675,14 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="False" CsvAction="Write" DataTable="[dt_LayoutData]" Delimitator="Semicolon" DelimitatorForViewModel="Semicolon" DisplayName="Write CSV - Creating CSV file with strLayoutData data" FilePath="[strImportCsvFilePath]" sap:VirtualizedContainerService.HintSize="482,234" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_3" ShouldQuote="True" />
-    <ui:RenameFileX DisplayName="Rename File - Changing name file to 'LayoutTOTVS.txt'" FilePath="[strImportCsvFilePath]" sap:VirtualizedContainerService.HintSize="482,175" sap2010:WorkflowViewState.IdRef="RenameFileX_3" KeepExtension="False" NewName="LayoutTOTVS.txt" />
-    <ui:ReadTextFile File="{x:Null}" Content="[strReadTextFileUTF]" DisplayName="Read Text File - LayoutTOTVS.txt" Encoding="Windows-1252" FileName="[strReadTextPath]" sap:VirtualizedContainerService.HintSize="482,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File - Creating PedidosdeVenda_ansi.txt" Encoding="Windows-1252" FileName="[strPedidoVendaPath]" sap:VirtualizedContainerService.HintSize="482,165" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[strReadTextFileUTF]" />
-    <ui:LogMessage DisplayName="Log Message - Deleting duplicate file LayoutTOTVS" sap:VirtualizedContainerService.HintSize="482,173" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;Deletando arquivo LayoutTOTVS.txt duplicado...&quot;]" />
-    <ui:DeleteFileX DisplayName="Delete File - Deleting file duplicate LayoutTOTVS.txt" sap:VirtualizedContainerService.HintSize="482,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[strReadTextPath]" />
-    <ui:LogMessage DisplayName="Log Message - Delete finished duplicate file LayoutTOTVS" sap:VirtualizedContainerService.HintSize="482,173" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Arquivo LayoutTOTVS.txt deletado...&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign - Declaring path to out_strEnergisaExcelFilePath | strPedidoVendaPath" sap:VirtualizedContainerService.HintSize="482,232" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+    <ui:AppendWriteCsvFile PathResource="{x:Null}" AddHeaders="False" CsvAction="Write" DataTable="[dt_LayoutData]" Delimitator="Semicolon" DelimitatorForViewModel="Semicolon" DisplayName="Write CSV - Creating CSV file with strLayoutData data" FilePath="[strImportCsvFilePath]" sap:VirtualizedContainerService.HintSize="520,234" sap2010:WorkflowViewState.IdRef="AppendWriteCsvFile_3" ShouldQuote="True" />
+    <ui:RenameFileX DisplayName="Rename File - Changing name file to 'LayoutTOTVS.txt'" FilePath="[strImportCsvFilePath]" sap:VirtualizedContainerService.HintSize="520,175" sap2010:WorkflowViewState.IdRef="RenameFileX_3" KeepExtension="False" NewName="LayoutTOTVS.txt" />
+    <ui:ReadTextFile File="{x:Null}" Content="[strReadTextFileUTF]" DisplayName="Read Text File - LayoutTOTVS.txt" Encoding="Windows-1252" FileName="[strReadTextPath]" sap:VirtualizedContainerService.HintSize="520,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File - Creating PedidosdeVenda_ansi.txt" Encoding="Windows-1252" FileName="[strPedidoVendaPath]" sap:VirtualizedContainerService.HintSize="520,165" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[strReadTextFileUTF]" />
+    <ui:LogMessage DisplayName="Log Message - Deleting duplicate file LayoutTOTVS" sap:VirtualizedContainerService.HintSize="520,173" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;Deletando arquivo LayoutTOTVS.txt duplicado...&quot;]" />
+    <ui:DeleteFileX DisplayName="Delete File - Deleting file duplicate LayoutTOTVS.txt" sap:VirtualizedContainerService.HintSize="520,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[strReadTextPath]" />
+    <ui:LogMessage DisplayName="Log Message - Delete finished duplicate file LayoutTOTVS" sap:VirtualizedContainerService.HintSize="520,173" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Arquivo LayoutTOTVS.txt deletado...&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign - Declaring path to out_strEnergisaExcelFilePath | strPedidoVendaPath" sap:VirtualizedContainerService.HintSize="520,232" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
