@@ -128,20 +128,20 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InvoiceTransmissionAndMonitoring" sap:VirtualizedContainerService.HintSize="1836,9982" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InvoiceTransmissionAndMonitoring" sap:VirtualizedContainerService.HintSize="1836,10438" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message InvoiceTransmissionAndMonitoring.xaml" sap:VirtualizedContainerService.HintSize="1124,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Inicializando InvoiceTransmissionAndMonitoring workflow...&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: TOTVS Serviços (TOTVS) 02.9.0005" sap:VirtualizedContainerService.HintSize="1124,9786" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="0bc2d7a5-6930-4cab-9958-c625836460cf" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: TOTVS Serviços (TOTVS) 02.9.0005" sap:VirtualizedContainerService.HintSize="1124,10242" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="0bc2d7a5-6930-4cab-9958-c625836460cf" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer in TOTVS" sap:VirtualizedContainerService.HintSize="1090,9472" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Fazer in TOTVS" sap:VirtualizedContainerService.HintSize="1090,9928" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strNFCode" />
             </Sequence.Variables>
@@ -151,7 +151,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message - Searching Nfs-e button" sap:VirtualizedContainerService.HintSize="1056,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Localizando o campo Nfs-e no menu Favoritos&quot;]" />
-            <uix:NCheckState DisplayName="Check App State 'Nfs-e' display" sap:VirtualizedContainerService.HintSize="1056,1226" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
+            <uix:NCheckState DisplayName="Check App State 'Nfs-e' display" sap:VirtualizedContainerService.HintSize="1056,1266" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,977" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
@@ -667,9 +667,9 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NCheckState DisplayName="Check App State 'Ocultar Detalhes' appers" sap:VirtualizedContainerService.HintSize="1056,1590" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
+            <uix:NCheckState DisplayName="Check App State 'Ocultar Detalhes' appers" sap:VirtualizedContainerService.HintSize="1056,2006" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="536,1348" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="552,1764" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strCodeRPSCompare" />
                   </Sequence.Variables>
@@ -678,8 +678,8 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message - Checking if 'Numero' is equal to str_CodeRPS" sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Checando se código RPS é idêntico ao valor armazenado em strCodeRPS...&quot;]" />
-                  <uix:NGetText DisplayName="Get Text 'Numero'" sap:VirtualizedContainerService.HintSize="502,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" TextString="[strCodeRPSCompare]" Version="V4">
+                  <ui:LogMessage DisplayName="Log Message - Checking if 'Numero' is equal to str_CodeRPS" sap:VirtualizedContainerService.HintSize="518,175" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Checando se código RPS é idêntico ao valor armazenado em strCodeRPS...&quot;]" />
+                  <uix:NGetText DisplayName="Get Text 'Numero'" sap:VirtualizedContainerService.HintSize="518,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" TextString="[strCodeRPSCompare]" Version="V4">
                     <uix:NGetText.Target>
                       <uix:TargetAnchorable CVScreenId="9b8575db-58dc-417d-baf9-f43b65956ed5" CvElementArea="43, 835, 175, 34" CvType="InputBox" DesignTimeRectangle="45, 837, 171, 31" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;ctrl name='M-&amp;gt;2' role='text' /&gt;" Guid="f78e8227-6d40-4639-9dd4-c27233530075" ImageBase64="" InformativeScreenshot="9930031031b98c9b0acc8361d3a198b2.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
@@ -690,16 +690,16 @@
                       </uix:TargetAnchorable>
                     </uix:NGetText.Target>
                   </uix:NGetText>
-                  <If Condition="[strCodeRPSCompare.Equals(in_strCodeRPS)]" DisplayName="If strCodeRPSCompare is equals in_strCodeRPS" sap:VirtualizedContainerService.HintSize="502,922" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[strCodeRPSCompare.Equals(in_strCodeRPS)]" DisplayName="If strCodeRPSCompare is equals in_strCodeRPS" sap:VirtualizedContainerService.HintSize="518,1338" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,586" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,1002" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message - Sucess in validation strCodeRPSCompare" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Validação de código RPS realizada com sucesso...&quot;]" />
-                        <uix:NGetText DisplayName="Get Text 'strNFCode' in NF Eletr." sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" TextString="[strNFCode]" Version="V4">
+                        <ui:LogMessage DisplayName="Log Message - Sucess in validation strCodeRPSCompare" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Validação de código RPS realizada com sucesso...&quot;]" />
+                        <uix:NGetText DisplayName="Get Text 'strNFCode' in NF Eletr." sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" TextString="[strNFCode]" Version="V4">
                           <uix:NGetText.Target>
                             <uix:TargetAnchorable CVScreenId="9b8575db-58dc-417d-baf9-f43b65956ed5" CvElementArea="1147, 908, 383, 34" CvType="InputBox" DesignTimeRectangle="1149, 910, 380, 31" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;ctrl name='M-&amp;gt;10' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='M-&amp;gt;10' role='text' automationid='' /&gt;" Guid="e296f795-bb39-4922-9f15-3d4bbc3bd3cf" InformativeScreenshot="947d4cd2781cda63f399ee00eb7bd143.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                               <uix:TargetAnchorable.Anchors>
@@ -710,19 +710,27 @@
                             </uix:TargetAnchorable>
                           </uix:NGetText.Target>
                         </uix:NGetText>
-                        <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Transfering strNFCode to in_strEnergisaExcelFilePath" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[in_strEnergisaExcelFilePath]">
+                        <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Transfering strNFCode to in_strEnergisaExcelFilePath" sap:VirtualizedContainerService.HintSize="450,473" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[in_strEnergisaExcelFilePath]">
                           <ui:ExcelApplicationScope.Body>
                             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                              <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ExcelWriteCell Cell="I13" DisplayName="Write Cell - strNFCode" sap:VirtualizedContainerService.HintSize="382,111" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="[&quot;Dados MT - &quot; &amp; in_strDatePDF]" Text="[strNFCode]">
+                                <ui:ExcelWriteCell Cell="I13" DisplayName="Write Cell - strNFCode" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="[&quot;Dados MT - &quot; &amp; in_strDatePDF]" Text="[strNFCode]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:ExcelWriteCell>
+                                <ui:ExcelWriteCell Cell="J13" DisplayName="Write Cell - NF date" sap:VirtualizedContainerService.HintSize="382,111" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="[&quot;Dados MT - &quot; &amp; in_strDatePDF]" Text="[Now.ToString(&quot;dd/MM/yyyy&quot;)]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -735,12 +743,12 @@
                           </ui:ExcelApplicationScope.Body>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ExcelApplicationScope>
-                        <Assign DisplayName="Assign to declare data to out_strNFCode" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign DisplayName="Assign to declare data to out_strNFCode" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_1">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[out_strNFCode]</OutArgument>
                           </Assign.To>
