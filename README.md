@@ -12,12 +12,13 @@ O objetivo deste projeto é automatizar o processo de faturamento da Energisa, d
 
 - **1 Main Sequence (Sequence)**: Coordena a execução de todos os sub-processos, inicializando variáveis e chamando workflows específicos.
 - **1.1 CheckEmailEnergisaMT (Sequence)**: Verifica a caixa de entrada de emails para mensagens com medições de lote, salva os anexos PDF e extrai o nome do arquivo.
-- **1.2 GetDataPDF (Sequence)**: Lê dados de arquivos PDF, extrai informações importantes e preenche um arquivo Excel com esses dados.
-- **1.3 LoginTOTVS (Sequence)**: Realiza o login no sistema TOTVS usando credenciais armazenadas de forma segura.
-- **1.4 ProcessDataInTOTVS (Sequence)**: Processa os dados dentro do sistema TOTVS, navegando pelas telas e interagindo com a aplicação conforme necessário.
-- **1.5 InvoiceTransmissionAndMonitoring (Sequence)**: Realiza a transmissão e monitoramento das notas fiscais (NFs) dentro do sistema TOTVS.
-- **1.6 DownloadingNFSemfaz (Sequence)**: Faz o download das notas fiscais do site da Semfaz.
-- **1.7 KillAllProcesses (Sequence)**: Encerra todos os processos ao final da execução.
+- **1.2 CloseProcessBeforeStart (Sequence)**: Verifica processos abertos e os fecha antes de começar extração de dados.
+- **1.3 GetDataPDF (Sequence)**: Lê dados de arquivos PDF, extrai informações importantes e preenche um arquivo Excel com esses dados.
+- **1.4 LoginTOTVS (Sequence)**: Realiza o login no sistema TOTVS usando credenciais armazenadas de forma segura.
+- **1.5 ProcessDataInTOTVS (Sequence)**: Processa os dados dentro do sistema TOTVS, navegando pelas telas e interagindo com a aplicação conforme necessário.
+- **1.6 InvoiceTransmissionAndMonitoring (Sequence)**: Realiza a transmissão e monitoramento das notas fiscais (NFs) dentro do sistema TOTVS.
+- **1.7 DownloadingNFSemfaz (Sequence)**: Faz o download das notas fiscais do site da Semfaz.
+- **1.8 KillAllProcesses (Sequence)**: Encerra todos os processos ao final da execução.
 
 ## Variáveis
 
