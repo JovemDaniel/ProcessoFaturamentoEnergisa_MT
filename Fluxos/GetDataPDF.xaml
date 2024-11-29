@@ -200,7 +200,7 @@
               <OutArgument x:TypeArguments="x:String">[strMunicipalityPDF]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(strDataPDF, "Município:\s*(\d+)").Groups(1).Value.Trim()]</InArgument>
+              <InArgument x:TypeArguments="x:String">03403</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_49">

@@ -193,7 +193,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uix:NCheckState DisplayName="Check App State 'Insira seu usuário'" sap:VirtualizedContainerService.HintSize="954,1395" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="1310836a-dea3-435e-ac93-9783672b464d" Timeout="30" Version="V4">
+                <uix:NCheckState DisplayName="Check App State 'Insira seu usuário'" sap:VirtualizedContainerService.HintSize="954,1395" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="1310836a-dea3-435e-ac93-9783672b464d" Timeout="20" Version="V4">
                   <uix:NCheckState.IfExists>
                     <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,1146" sap2010:WorkflowViewState.IdRef="Sequence_7">
                       <sap:WorkflowViewStateService.ViewState>
