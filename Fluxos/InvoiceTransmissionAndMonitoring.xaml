@@ -128,20 +128,20 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InvoiceTransmissionAndMonitoring" sap:VirtualizedContainerService.HintSize="1836,10438" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InvoiceTransmissionAndMonitoring" sap:VirtualizedContainerService.HintSize="1836,10561" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message InvoiceTransmissionAndMonitoring.xaml" sap:VirtualizedContainerService.HintSize="1124,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Inicializando InvoiceTransmissionAndMonitoring workflow...&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: TOTVS Serviços (TOTVS) 02.9.0005" sap:VirtualizedContainerService.HintSize="1124,10242" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="0bc2d7a5-6930-4cab-9958-c625836460cf" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: TOTVS Serviços (TOTVS) 02.9.0005" sap:VirtualizedContainerService.HintSize="1124,10365" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="0bc2d7a5-6930-4cab-9958-c625836460cf" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer in TOTVS" sap:VirtualizedContainerService.HintSize="1090,9928" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Fazer in TOTVS" sap:VirtualizedContainerService.HintSize="1090,10051" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strNFCode" />
             </Sequence.Variables>
@@ -151,7 +151,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message - Searching Nfs-e button" sap:VirtualizedContainerService.HintSize="1056,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Localizando o campo Nfs-e no menu Favoritos&quot;]" />
-            <uix:NCheckState DisplayName="Check App State 'Nfs-e' display" sap:VirtualizedContainerService.HintSize="1056,1266" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
+            <uix:NCheckState DisplayName="Check App State 'Nfs-e' display" sap:VirtualizedContainerService.HintSize="1056,1226" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,977" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
@@ -337,7 +337,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nota fiscal inicial' the strCodeRPS" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1056,57" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Text="[in_strCodeRPS]" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nota fiscal inicial' the strCodeRPS" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1056,84" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Text="[in_strCodeRPS]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable CVScreenId="9b06cc44-fe89-4453-bae3-844b9c169272" CvElementArea="942, 490, 74, 26" CvType="InputBox" DesignTimeRectangle="943, 491, 72, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='MV_PAR02' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='MV_PAR02' role='editable text' automationid='' /&gt;" Guid="b7a4f47b-a38c-4822-826f-93c6161be1e0" InformativeScreenshot="d87260911fac36d38402fb88be181195.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -354,7 +354,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nota fiscal final' the strCodeRPS" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1056,57" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Text="[in_strCodeRPS]" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Nota fiscal final' the strCodeRPS" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1056,84" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Text="[in_strCodeRPS]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable CVScreenId="9b06cc44-fe89-4453-bae3-844b9c169272" CvElementArea="941, 524, 75, 26" CvType="InputBox" DesignTimeRectangle="943, 525, 72, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='MV_PAR03' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='MV_PAR03' role='editable text' automationid='' /&gt;" Guid="4400044f-2c86-46e2-852f-dfd08c02fe77" InformativeScreenshot="056f96b4476511ecb45a66459bc190cd.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -371,7 +371,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ok' to Transmissão" sap:VirtualizedContainerService.HintSize="1056,57" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Version="V4">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Ok' to Transmissão" sap:VirtualizedContainerService.HintSize="1056,84" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Version="V4">
               <uix:NClick.Target>
                 <uix:TargetAnchorable CVScreenId="9b06cc44-fe89-4453-bae3-844b9c169272" CvElementArea="1054, 690, 54, 24" CvTextArea="1074, 696, 15, 11" CvTextArgument="Ok" CvType="Button" DesignTimeRectangle="1056, 691, 52, 22" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Ok' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Ok' role='push button' automationid='' check:fulltext='Ok' /&gt;" Guid="a4d1247d-8cfe-4a50-bfc2-89c9aea9e173" InformativeScreenshot="f265ff07b2a71dd60082d58f742365c6.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt*QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -667,9 +667,9 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NCheckState DisplayName="Check App State 'Ocultar Detalhes' appers" sap:VirtualizedContainerService.HintSize="1056,2006" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
+            <uix:NCheckState DisplayName="Check App State 'Ocultar Detalhes' appers" sap:VirtualizedContainerService.HintSize="1056,2088" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" Timeout="5" Version="V4">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="552,1764" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="552,1846" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strCodeRPSCompare" />
                   </Sequence.Variables>
@@ -679,6 +679,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - Checking if 'Numero' is equal to str_CodeRPS" sap:VirtualizedContainerService.HintSize="518,175" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Checando se código RPS é idêntico ao valor armazenado em strCodeRPS...&quot;]" />
+                  <Delay DisplayName="Delay to wait &quot;Detalhes&quot; load" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="518,122" sap2010:WorkflowViewState.IdRef="Delay_9" />
                   <uix:NGetText DisplayName="Get Text 'Numero'" sap:VirtualizedContainerService.HintSize="518,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="0bc2d7a5-6930-4cab-9958-c625836460cf" TextString="[strCodeRPSCompare]" Version="V4">
                     <uix:NGetText.Target>
                       <uix:TargetAnchorable CVScreenId="9b8575db-58dc-417d-baf9-f43b65956ed5" CvElementArea="43, 835, 175, 34" CvType="InputBox" DesignTimeRectangle="45, 837, 171, 31" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;ctrl name='M-&amp;gt;2' role='text' /&gt;" Guid="f78e8227-6d40-4639-9dd4-c27233530075" ImageBase64="" InformativeScreenshot="9930031031b98c9b0acc8361d3a198b2.png" ScopeSelectorArgument="&lt;wnd app='smartclient.exe' cls='Qt626QWindowIcon' title='TOTVS Serviços (TOTVS) 02.9.0005 - Ver: 20.3.2.8' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
@@ -690,9 +691,9 @@
                       </uix:TargetAnchorable>
                     </uix:NGetText.Target>
                   </uix:NGetText>
-                  <If Condition="[strCodeRPSCompare.Equals(in_strCodeRPS)]" DisplayName="If strCodeRPSCompare is equals in_strCodeRPS" sap:VirtualizedContainerService.HintSize="518,1338" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[strCodeRPSCompare.Equals(in_strCodeRPS)]" DisplayName="If strCodeRPSCompare is equals in_strCodeRPS" sap:VirtualizedContainerService.HintSize="518,1298" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,1002" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,962" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -710,7 +711,7 @@
                             </uix:TargetAnchorable>
                           </uix:NGetText.Target>
                         </uix:NGetText>
-                        <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Transfering strNFCode to in_strEnergisaExcelFilePath" sap:VirtualizedContainerService.HintSize="450,473" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[in_strEnergisaExcelFilePath]">
+                        <ui:ExcelApplicationScope Password="{x:Null}" SensitivityLabel="{x:Null}" DisplayName="Excel Application Scope - Transfering strNFCode to in_strEnergisaExcelFilePath" sap:VirtualizedContainerService.HintSize="450,433" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" SensitivityOperation="None" Visible="False" WorkbookPath="[in_strEnergisaExcelFilePath]">
                           <ui:ExcelApplicationScope.Body>
                             <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                               <ActivityAction.Argument>

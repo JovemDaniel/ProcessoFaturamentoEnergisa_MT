@@ -134,7 +134,7 @@
       </Assign.Value>
     </Assign>
     <ui:LogMessage DisplayName="Log Message - Checking if email arrived in Caixa de Entrada" sap:VirtualizedContainerService.HintSize="570,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Checando chegada de e-mail com medição de lote...&quot;]" />
-    <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="daniel.nascimento@logos-ma.com.br" DisplayName="Get Outlook Mail Messages with Energisa MT in subject" GetAttachements="False" sap:VirtualizedContainerService.HintSize="570,57" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Caixa de Entrada" MarkAsRead="False" Messages="[lstEmails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="1000" />
+    <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="daniel.nascimento@logos-ma.com.br" DisplayName="Get Outlook Mail Messages with Energisa MT in subject" GetAttachements="False" sap:VirtualizedContainerService.HintSize="570,57" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Caixa de Entrada" MarkAsRead="True" Messages="[lstEmails]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="1000" />
     <Assign DisplayName="Assign to filter email ENERGISA MT" sap:VirtualizedContainerService.HintSize="570,114" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[lstFilteredEmails]</OutArgument>
