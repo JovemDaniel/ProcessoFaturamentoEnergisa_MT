@@ -1,12 +1,12 @@
 # Processo Faturamento Mato Grosso
 
-Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento da Energisa MT.
+Este repositório contém os scripts e fluxos de trabalho necessários para o processo de faturamento MT.
 
 ![image](https://github.com/user-attachments/assets/b9e6a9a6-49b7-4be7-a02e-c5857ead62fb)
 
 ## Visão Geral
 
-O objetivo deste projeto é automatizar o processo de faturamento da Energisa, desde a verificação de emails até a transmissão e monitoramento das faturas. O projeto é dividido em várias etapas, cada uma representada por um arquivo de workflow distinto.
+O objetivo deste projeto é automatizar o processo de faturamento da, desde a verificação de emails até a transmissão e monitoramento das faturas. O projeto é dividido em várias etapas, cada uma representada por um arquivo de workflow distinto.
 
 ## Estrutura do Projeto
 
@@ -82,7 +82,7 @@ Certifique-se de que os pacotes estejam instalados e atualizados para evitar pro
 
 1. Clone este repositório:
     ```bash
-    git clone https://github.com/JovemDaniel/ProcessoFaturamentoEnergisa_MT.git
+    git clone https://github.com/JovemDaniel/ProcessoFaturamento_MT.git
     ```
 
 2. Abra o projeto no UiPath Studio.
